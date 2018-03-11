@@ -16,10 +16,10 @@ date_default_timezone_set("America/Boise");
 
 
 
-        $db = DB::getInstance();
-        $company_id = $_POST['id'];
-        $userID = $user->data()->id;
-        /*
+$db = DB::getInstance();
+$company_id = $_POST['id'];
+$userID = $user->data()->id;
+/*
         $company_name= $_POST['company_name'];
         $date_time= date('y/m/d h:i:sa');
         $experience_weight= $_POST['experience_weight'];
@@ -60,7 +60,7 @@ date_default_timezone_set("America/Boise");
         $total_score_potential = $total_weight * 10;
 
         $total_below_potential = $total_score_potential - $total_score;
- 
+
         */
 /*
     $fields=array(
@@ -91,28 +91,28 @@ date_default_timezone_set("America/Boise");
         );
     $db->update('business_scorecard',$company_id,$fields);
     */
-    $db->delete('business_scorecard',array('id','=',$company_id));
+$db->delete('business_scorecard',array('id','=',$company_id));
 //    $query = $db->query("SELECT id FROM business_scorecard WHERE users_id = ? AND date_time = ?",[$userID,$date_time]);
-  //  $id_company = $query->first();
+//  $id_company = $query->first();
 //    $company_id = $id_company->id;
 
 //$userID = $user->data()->id;
-    
 
 
 
 
- ?>
+
+?>
 
 <div id="page-wrapper">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-12">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
                 <h1>The business has now been deleted</h1>
 
                 <div class="col-md-6"> 
-                <!-- a href='business_scorecard_update.php?id=".$r->id."'  --> 
-                <input type="hidden" name="id" id="id" value="<?php echo $id ?>">
+                    <!-- a href='business_scorecard_update.php?id=".$r->id."'  --> 
+                    <input type="hidden" name="id" id="id" value="<?php echo $id ?>">
 
                 </div> 
             </div>
@@ -120,8 +120,8 @@ date_default_timezone_set("America/Boise");
     </div>
 </div>
 
- 
-	<!-- footers -->
+
+<!-- footers -->
 <?php require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>
 
 <!-- Place any per-page javascript here -->

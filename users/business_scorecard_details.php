@@ -1,8 +1,8 @@
 <style>
-td {
-     text-align: center;
-    margin-right: 5px;
-}
+    td {
+        text-align: center;
+        margin-right: 5px;
+    }
 
 </style>
 
@@ -14,7 +14,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
 date_default_timezone_set("America/Boise");  
 /*
         $db = DB::getInstance();
-        
+
         $userID = $user->data()->id;
         $company_name= $_POST['company_name'];
         $date_time= date('y/m/d h:i:sa');
@@ -38,7 +38,7 @@ date_default_timezone_set("America/Boise");
         $managing_rec_pay_grade= $_POST['rec_pay_grade'];
         $cash_controls_weight= $_POST['cash_weight'];
         $cash_controls_grade= $_POST['cash_grade'];
-        
+
     $fields=array(
         'company_name'=>$company_name,
         'date_time'=>$date_time,
@@ -76,28 +76,28 @@ $results = $users->results();
 
 
 <div id="page-wrapper">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-12">
-<?php
-foreach($results as $r) {
-echo "<tr><td>Company Name: </td><td>".$r->company_name."</td></tr><br>";
-echo "<tr><td>Date: </td><td>".$r->date_time."</td></tr>";
-echo "<div style='padding:30px 0 0 10px; margin: 5px;'><table border='1'>";
-echo "<tr><td></td><td>Key Areas of Management</td><td>Weight</td><td>Grade</td><td>Score</td><td>Score Potential</td><td>Below Potential</td></tr>";
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <?php
+                foreach($results as $r) {
+                    echo "<tr><td>Company Name: </td><td>".$r->company_name."</td></tr><br>";
+                    echo "<tr><td>Date: </td><td>".$r->date_time."</td></tr>";
+                    echo "<div style='padding:30px 0 0 10px; margin: 5px;'><table border='1'>";
+                    echo "<tr><td></td><td>Key Areas of Management</td><td>Weight</td><td>Grade</td><td>Score</td><td>Score Potential</td><td>Below Potential</td></tr>";
 
-    if ($r->users_id == $userID && $r->id == $id )
-        echo "<tr><td>1</td><td>".$r->experience_weight."</td><td>".$r->experience_grade."</td><td>".($r->experience_weight)*($r->experience_grade)."</td><td>".($r->experience_weight)*(10)."</td><td>".((($r->experience_weight)*(10))-(($r->experience_weight)*($r->experience_grade)))."</td></tr>";
-    }
-echo "</table></div>";
-?>
-</div>
-    </div>
-        </div>
+                    if ($r->users_id == $userID && $r->id == $id )
+                        echo "<tr><td>1</td><td>".$r->experience_weight."</td><td>".$r->experience_grade."</td><td>".($r->experience_weight)*($r->experience_grade)."</td><td>".($r->experience_weight)*(10)."</td><td>".((($r->experience_weight)*(10))-(($r->experience_weight)*($r->experience_grade)))."</td></tr>";
+                }
+                echo "</table></div>";
+                ?>
             </div>
-    
+        </div>
+    </div>
+</div>
 
-	<!-- footers -->
+
+<!-- footers -->
 <?php require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>
 
 <!-- Place any per-page javascript here -->
