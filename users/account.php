@@ -27,10 +27,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 //dealing with if the user is logged in
 if($user->isLoggedIn() || !$user->isLoggedIn() && !checkMenu(2,$user->data()->id)){
-	if (($settings->site_offline==1) && (!in_array($user->data()->id, $master_account)) && ($currentPage != 'login.php') && ($currentPage != 'maintenance.php')){
-		$user->logout();
-		Redirect::to($us_url_root.'users/maintenance.php');
-	}
+    if (($settings->site_offline==1) && (!in_array($user->data()->id, $master_account)) && ($currentPage != 'login.php') && ($currentPage != 'maintenance.php')){
+        $user->logout();
+        Redirect::to($us_url_root.'users/maintenance.php');
+    }
 }
 $grav = get_gravatar(strtolower(trim($user->data()->email)));
 $get_info_id = $user->data()->id;
@@ -38,32 +38,32 @@ $get_info_id = $user->data()->id;
 $raw = date_parse($user->data()->join_date);
 $signupdate = $raw['month']."/".$raw['day']."/".$raw['year'];
 $userdetails = fetchUserDetails(NULL, NULL, $get_info_id); //Fetch user details
- ?>
+?>
 
 <div id="page-wrapper">
-<div class="container">
-<div class="well">
-<div class="row">
-	<div class="col-xs-12 col-md-3">
-		<p><img src="<?=$grav; ?>" class="img-thumbnail" alt="Generic placeholder thumbnail"></p>
-		<p><a href="user_settings.php" class="btn btn-primary">Edit Account Info</a></p>
-		<p><a class="btn btn-primary " href="profile.php?id=<?=$get_info_id;?>" role="button">Public Profile</a></p>
-        <p><a class="btn btn-primary " href="business_scorecard_business_list.php?id=<?=$get_info_id;?>" role="button">Business List</a></p>
-        <p><a class="btn btn-primary " href="business_scorecard_insert.php?id=<?=$get_info_id;?>" role="button">Insert Business</a></p>
-        
-	</div>
-	<div class="col-xs-12 col-md-9">
-		<h1><?=ucfirst($user->data()->username)?></h1>
-		<p><?=ucfirst($user->data()->fname)." ".ucfirst($user->data()->lname)?></p>
-		<p>Member Since:<?=$signupdate?></p>
-		<p>Number of Logins: <?=$user->data()->logins?></p>
-		<p>This is the private account page for your users. It can be whatever you want it to be; This code serves as a guide on how to use some of the built-in UserSpice functionality. </p>
+    <div class="container">
+        <div class="well">
+            <div class="row">
+                <div class="col-xs-12 col-md-3">
+                    <p><img src="<?=$grav; ?>" class="img-thumbnail" alt="Generic placeholder thumbnail"></p>
+                    <p><a href="user_settings.php" class="btn btn-primary">Edit Account Info</a></p>
+                    <p><a class="btn btn-primary " href="profile.php?id=<?=$get_info_id;?>" role="button">Public Profile</a></p>
+                    <p><a class="btn btn-primary " href="business_scorecard_business_list.php?id=<?=$get_info_id;?>" role="button">Business List</a></p>
+                    <!--        <p><a class="btn btn-primary " href="business_scorecard_insert.php?id=<?=$get_info_id;?>" role="button">Insert New Business</a></p>-->
 
-	</div>
-</div>
-</div>
+                </div>
+                <div class="col-xs-12 col-md-9">
+                    <h1><?=ucfirst($user->data()->username)?></h1>
+                    <p><?=ucfirst($user->data()->fname)." ".ucfirst($user->data()->lname)?></p>
+                    <p>Member Since:<?=$signupdate?></p>
+                    <p>Number of Logins: <?=$user->data()->logins?></p>
+                    <p>This is the private account page for your users. It can be whatever you want it to be; This code serves as a guide on how to use some of the built-in UserSpice functionality. </p>
 
-</div> <!-- /container -->
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- /container -->
 
 </div> <!-- /#page-wrapper -->
 

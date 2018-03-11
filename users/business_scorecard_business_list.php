@@ -9,7 +9,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
 date_default_timezone_set("America/Boise");  
 
 $db = DB::getInstance();
-        
+
 $userID = $user->data()->id;
 
 
@@ -17,26 +17,31 @@ $users = $db->query("SELECT *, COUNT(company_name) AS 'total' FROM business_scor
 $results = $users->results(); 
 ?>
 <div id="page-wrapper">
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-12">
-<?php
-echo "<div style='padding:30px 0 0 10px; margin: 5px;'><table border='1'>";
-echo "<tr><td style='margin:5px; padding:15px'>Company Name</td><td style='margin:5px; padding:15px'>Number Inserted</td></tr>";
-foreach($results as $r) {
-    if ($r->users_id == $userID)   
-    echo "<tr><td style='margin:5px; padding:0 15px'><a href='business_scorecard_business_list_by_date.php?id=".$r->company_name."'>".$r->company_name."</a></td><td style='margin:5px; padding:0 15px;text-align: center'>".$r->total." </td></tr>";
-        //echo "<tr><td><a href='business_scorecard_update.php?id=".$r->id."'>".$r->company_name."</a></td><td>".$r->date_time." </td></tr>";
-    }
-echo "</table></div>";
-?>
-</div>
-    </div>
-        </div>
+    <div class="container-fluid">
+        <h1>Your Current Businesses: </h1>
+        <div class="row">
+            <!--Insert New Business Option:-->
+            <h4>Insert New Business: </h4> 
+            <p><a class="btn btn-primary " href="business_scorecard_insert.php?id=<?=$get_info_id;?>" role="button">Add Business</a></p>
+            <!--Display Current Businesses-->
+            <div class="col-sm-12">
+                <?php
+                echo "<div style='padding:30px 0 0 10px; margin: 5px;'><table border='1'>";
+                echo "<tr><td style='margin:5px; padding:15px'>Company Name</td><td style='margin:5px; padding:15px'>Number Inserted</td></tr>";
+                foreach($results as $r) {
+                    if ($r->users_id == $userID)   
+                        echo "<tr><td style='margin:5px; padding:0 15px'><a href='business_scorecard_business_list_by_date.php?id=".$r->company_name."'>".$r->company_name."</a></td><td style='margin:5px; padding:0 15px;text-align: center'>".$r->total." </td></tr>";
+                    //echo "<tr><td><a href='business_scorecard_update.php?id=".$r->id."'>".$r->company_name."</a></td><td>".$r->date_time." </td></tr>";
+                }
+                echo "</table></div>";
+                ?>
             </div>
+        </div>
+    </div>
+</div>
 
-    
-    <?php
+
+<?php
 /*
                 $users = $db->query("SELECT * FROM users");
                 $first = $users->first();
@@ -50,10 +55,10 @@ echo "</table></div>";
                 dump($password_user);
                 dump($email_user);
                 dump($first);
-                ?>
+?>
                 <p>My name is <?php echo $fullname ?></p>
-    
-    
+
+
     //$company_name = $users -> company_name;
     //echo "Company Name: " . $users . ".";
 
