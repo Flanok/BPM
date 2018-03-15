@@ -18,25 +18,33 @@ $results = $users->results();
 ?>
 <div id="page-wrapper">
     <div class="container-fluid">
-        <h1>Your Current Businesses: </h1>
+        <h1>Scorecard Shananigans</h1>
         <div class="row">
-            <!--Insert New Business Option:-->
-            <h4>Insert New Business: </h4> 
-            <p><a class="btn btn-primary " href="business_scorecard_insert.php?id=<?=$get_info_id;?>" role="button">Add Business</a></p>
+            
             <!--Display Current Businesses-->
             <div class="col-sm-12">
                 <?php
-                echo "<div style='padding:30px 0 0 10px; margin: 5px;'><table border='1'>";
+                    echo "<div style='padding:30px 0 0 10px; margin: 5px;'><table border='1'>";
                 echo "<tr><td style='margin:5px; padding:15px'>Company Name</td><td style='margin:5px; padding:15px'>Number Inserted</td></tr>";
                 foreach($results as $r) {
-                    if ($r->users_id == $userID)   
+                    if ($r->users_id == $userID) 
+                        //echo "<h3>$r->company_name</h3>";
+                        echo "<a class='btn btn-primary ' href='bpm_add_business.php?id=$r->company_name' role='button'>$r->company_name</a>";
+                        
                         echo "<tr><td style='margin:5px; padding:0 15px'><a href='business_scorecard_business_list_by_date.php?id=".$r->company_name."'>".$r->company_name."</a></td><td style='margin:5px; padding:0 15px;text-align: center'>".$r->total." </td></tr>";
-                    //echo "<tr><td><a href='business_scorecard_update.php?id=".$r->id."'>".$r->company_name."</a></td><td>".$r->date_time." </td></tr>";
+                    //                    echo "<tr><td><a href='business_scorecard_update.php?id=".$r->id."'>".$r->company_name."</a></td><td>".$r->date_time." </td></tr>";
                 }
                 echo "</table></div>";
                 ?>
             </div>
         </div>
+        <!--Insert New Business Option:-->
+            <h4>Add New Business: </h4> 
+            <p>
+                <?php
+                echo "<a class='btn btn-primary ' href='bpm_add_business.php?id=$userID' role='button'>Add New Business</a>";
+                ?>
+            </p>
     </div>
 </div>
 

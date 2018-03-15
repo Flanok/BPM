@@ -92,16 +92,21 @@ $results = $users->results();
 
                 <!--Print the table of the businesses and the dates -->
                 <div style='padding:30px 0 0 10px; margin: 5px;'><table border='1'>
-                    <tr><td style='margin:5px; padding:0 15px'>Name</td><td style='margin:5px; padding:0 15px'>Date Inserted</td></tr>
+                    <h2>
+                        <?php
+                        echo $company_name;
+                        ?>
+                    </h2>
+                    <tr>
+                        <td style='margin:5px; padding:0 15px'>Date Inserted</td></tr>
 
                     <?php    
                     //Loop through the business name and the date it was inserted into the database
                     foreach($results as $r) {
                         if ($r->company_name == $company_name){   
-                            echo "<tr><td style='margin:5px; padding:0 15px'><a href='business_scorecard_update.php?id=".$r->id."'>".$r->company_name."</a></td><td style='margin:5px; padding:0 15px;text-align: center'>";
-
                             $date = new DateTime($r->date_time);
-                            echo $date->format('m-d-Y')." at ".$date->format('H:i:s')."</td></tr>";
+
+                            echo "<tr><td style='margin:10px; padding:0 15px'><a href='business_scorecard_update.php?id=".$r->id."'>".$date->format('F d, Y')."</a>  at  ".$date->format('h:i a')."</td></tr>";
                         }
                     }
                     ?>    

@@ -61,7 +61,7 @@ $email_act=$results->email_act;
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="" href="<?=$us_url_root?>"><h2>Business Pulse</h2></a>
+<!--			<a class="" href="<?=$us_url_root?>"><h2>Business Pulse</h2></a>-->
 		</div>
 		<div class="collapse navbar-collapse navbar-top-menu-collapse navbar-right">
 			<ul class="nav navbar-nav ">
