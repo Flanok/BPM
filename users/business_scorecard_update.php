@@ -76,7 +76,7 @@ foreach($results as $r) {
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <h1>This is the main content section</h1>
+                <h1>Update Company</h1>
 
                 <!-- Graph for the users input -->
                 <div class="col-md-5" style="border: 1px solid black; ">
