@@ -12,7 +12,6 @@ $db = DB::getInstance();
 
 $userID = $user->data()->id;
 
-
 $users = $db->query("SELECT *, COUNT(company_name) AS 'total' FROM business_scorecard WHERE users_id = $userID GROUP BY company_name");
 $results = $users->results(); 
 ?>
@@ -25,8 +24,9 @@ $results = $users->results();
             <?php
             foreach($results as $r) {
                 if ($r->users_id == $userID) 
+                    $companyName = $r->company_name;
                     //echo "<h3>$r->company_name</h3>";
-                    echo "<br/><a class='btn btn-primary ' href='bpm_business_info.php?id=$userID' role='button'>$r->company_name</a><br/>";
+                    echo "<br/><a class='btn btn-primary ' href='bpm_business_info.php?id=$companyName' role='button'>$r->company_name</a><br/>";
             }
             ?>
         <!--Insert New Business Option:-->

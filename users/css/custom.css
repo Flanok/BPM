@@ -1,0 +1,7 @@
+.bpm_data_log_tables {
+    border: 1px solid black;
+}
+
+th.bpm_data_log_tables, td.bpm_data_log_tables {
+    padding: 10px;
+}

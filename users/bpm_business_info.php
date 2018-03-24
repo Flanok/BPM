@@ -24,7 +24,7 @@ $results = $users->results();
     <div class="container-fluid">
         <?php
         
-        echo "<h1>This page is a mess, but will have the business name here.. not this ID:   $company_name</h1>
+        echo "<h1>I pity the foo - $company_name</h1>
         
         <!--        Score Card-->
         <!--        Needs to be fixed-->
