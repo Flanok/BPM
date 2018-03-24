@@ -40,7 +40,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <h1>This is the main content section</h1>
+                <h1>Add Business:</h1>
 
 
 

@@ -24,9 +24,9 @@ $results = $users->results();
             <?php
             foreach($results as $r) {
                 if ($r->users_id == $userID) 
-                    $companyName = $r->company_name;
+                    $id = $r->id;
                     //echo "<h3>$r->company_name</h3>";
-                    echo "<br/><a class='btn btn-primary ' href='bpm_business_info.php?id=$companyName' role='button'>$r->company_name</a><br/>";
+                    echo "<br/><a class='btn btn-primary ' href='bpm_business_info.php?id=$id' role='button'>$r->company_name</a><br/>";
             }
             ?>
         <!--Insert New Business Option:-->
@@ -34,7 +34,7 @@ $results = $users->results();
         <h4>Add New Business: </h4> 
         <p>
             <?php
-            echo "<a class='btn btn-primary ' href='bpm_add_business.php?id=$userID' role='button'>Add New Business</a>";
+            echo "<a class='btn btn-primary ' href='business_scorecard_insert.php?id=$userID' role='button'>Add New Business</a>";
             ?>
         </p>
         </div>

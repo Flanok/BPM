@@ -83,6 +83,7 @@ $userID = $user->data()->id;
 //Query the data for the list of the businesses
 $users = $db->query("SELECT * FROM business_scorecard WHERE users_id = $userID");
 $results = $users->results();
+$company_name = $results[0]->company_name;
 ?>
 <div id="page-wrapper">
     <div class="container-fluid">
