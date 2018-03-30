@@ -550,20 +550,20 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                     </form>
                 </div> 
 
-                <!-- Graph for the users input -->
+                <!-- Graph for the users input 
                 <div class="col-md-4 col-md-offset-1">
                     <div style="border: 1px solid black; ">
                         <h2 style="text-align:center">Key Areas of Management</h2>
                         <canvas id="allCategories"></canvas>
                     </div>
-                    <!-- class="col-md-5 col-md-offset-2" style="border: 1px solid black; "> -->
+                    <!-- class="col-md-5 col-md-offset-2" style="border: 1px solid black; "> 
                     <div style="border: 1px solid black;">
                         <p style="-webkit-text-decoration-line: overline; /* Safari */
                                   text-decoration-line: overline;"></p>
                         <h2 style="text-align:center">Total Score</h2>
                         <canvas id="totalScore"></canvas>
                     </div>
-                </div> 
+                </div>-->
 
 
 
