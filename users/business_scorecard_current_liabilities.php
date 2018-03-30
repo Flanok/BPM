@@ -37,7 +37,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 col-md-offset-0">
-                
+
                 <h1>Update Your Current Liabilities</h1>
 
                 <div class="col-md-6 col-md-offset-3">    
@@ -62,13 +62,13 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     </th>
                                 </tr> 
                                 <tr><td></td></tr>
-							</thead>
-							</table>
+                            </thead>
+                        </table>
 
-                            <!-- Accounts Payable - Schedule #5 -->    
-							<table class="table" >
+                        <!-- Accounts Payable - Schedule #5 -->    
+                        <table class="table" >
                             <thead class="thead-inverse">
-                            <tr><td colspan="3" align="center" bgcolor="#ccffcc"><strong>Accounts Payable</strong></td></tr>
+                                <tr><td colspan="3" align="center" bgcolor="#ccffcc"><strong>Accounts Payable</strong></td></tr>
                                 <tr>
                                     <th></th>    
                                     <th align="center">Accounts Payable</th>
@@ -113,8 +113,8 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     </td>
                                 </tr>
                                 <!--if two different php documents have the same ID but call javascript can it determine the difference between documents that call it-->
-								<!--  Line 5  -->
-								<tr>
+                                <!--  Line 5  -->
+                                <tr>
                                     <th scope="row"></th>
                                     <td align="right"><strong>Total:</strong></td>
                                     <td>
@@ -125,10 +125,10 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
 
                             </tbody>
                         </table>
-                    <br/> 
-                    <br/>
-						
-					 <!-- Other Current Liabilities - Schedule #6 -->      
+                        <br/> 
+                        <br/>
+
+                        <!-- Other Current Liabilities - Schedule #6 -->      
                         <table class="table" >
                             <thead class="thead-inverse">
                                 <tr>
@@ -144,7 +144,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     <th align="center" nowrap>Description</th>
                                     <th align="center">Amount</th>
                                 </tr>
-							<!--  Line 1  -->
+                                <!--  Line 1  -->
                                 <tr>
                                     <th scope="row">1</th>
                                     <td nowrap>Liens / Judgments</td>
@@ -160,7 +160,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                         <input type="text" id="customer_prepaid_amount" name="customer_prepaid_amount" size="15" >
                                     </td>
                                 </tr>
-								<!--  Line 3  -->   
+                                <!--  Line 3  -->   
                                 <tr>
                                     <th scope="row">3</th>
                                     <td nowrap>Deferred Salaries</td>
@@ -176,7 +176,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                         <input type="text" id="accruals_taxes_payroll_amount" name="accruals_taxes_payroll_amount" size="15" >
                                     </td>
                                 </tr>
-								<!--  Line 5  -->   
+                                <!--  Line 5  -->   
                                 <tr>
                                     <th scope="row">5</th>
                                     <td nowrap>Balloon Payments</td>
@@ -184,7 +184,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                         <input type="text" id="balloon_payments_amount" name="balloon_payments_amount" size="15" >
                                     </td>
                                 </tr>
-								<!--  Line 6  -->   
+                                <!--  Line 6  -->   
                                 <tr>
                                     <th scope="row">6</th>
                                     <td nowrap>Accrued Interest</td>
@@ -192,7 +192,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                         <input type="text" id="accrued_interest_amount" name="accrued_interest_amount" size="15" >
                                     </td>
                                 </tr>
-								<!--  Line 4 TOTAL -->
+                                <!--  Line 4 TOTAL -->
                                 <tr>
                                     <td></td>
                                     <td align="right"><strong>Total: </strong></td>
@@ -200,8 +200,8 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                 </tr>
                             </tbody>
                         </table>    
-						
-                    <!-- Debt Continued - Schedule #7 Combined -->      
+
+                        <!-- Debt Continued - Schedule #7 Combined -->      
                         <table class="table" >
                             <thead class="thead-inverse">
                                 <tr>
@@ -228,7 +228,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                         <input type="text" id="long_term_obligations" name="long_term_obligations" size="15" >
                                     </td>
                                 </tr>
-								<!--  Line 3  -->   
+                                <!--  Line 3  -->   
                                 <tr>
                                     <th scope="row">3</th>
                                     <td nowrap>Leases</td>
@@ -244,27 +244,27 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                 </tr>
                             </tbody>
                         </table>
-                    <br/> 
-                    <br/> 
+                        <br/> 
+                        <br/> 
                         </table>    
-						<strong>Total Liabilities: <span id="liability_total"></span></strong>
-						<br/>
-						<br/>
-				<button type="submit" onclick="" id="liability_update_button">Update Liability Log</button>
+                    <strong>Total Liabilities: <span id="liability_total"></span></strong>
+                    <br/>
+                    <br/>
+                    <button type="submit" onclick="" id="liability_update_button">Update Liability Log</button>
                 </div> 
-				</form>
+                </form>
 
-                <!-- footers -->
-                <?php require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>
+            <!-- footers -->
+            <?php require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>
 
-                <!-- Place any per-page javascript here -->
+            <!-- Place any per-page javascript here -->
 
-                <?php require_once $abs_us_root.$us_url_root.'users/includes/html_footer.php'; // currently just the closing /body and /html ?>
+            <?php require_once $abs_us_root.$us_url_root.'users/includes/html_footer.php'; // currently just the closing /body and /html ?>
 
 
-                <!-- footers -->
-                <?php require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>
+            <!-- footers -->
+            <?php require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>
 
-                <!-- Place any per-page javascript here -->
+            <!-- Place any per-page javascript here -->
 
-                <?php require_once $abs_us_root.$us_url_root.'users/includes/html_footer.php'; // currently just the closing /body and /html ?>
+            <?php require_once $abs_us_root.$us_url_root.'users/includes/html_footer.php'; // currently just the closing /body and /html ?>

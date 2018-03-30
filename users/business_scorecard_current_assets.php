@@ -38,7 +38,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 col-md-offset-0">
-                
+
                 <h1>Update Your Current Assets</h1>
 
                 <div class="col-md-6 col-md-offset-3">              
@@ -63,13 +63,13 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     </th>
                                 </tr> 
                                 <tr><td></td></tr>
-							</thead>
-							</table>
+                            </thead>
+                        </table>
 
-                            <!-- Cash and Equivalents - Schedule #1 -->    
-							<table class="table" >
+                        <!-- Cash and Equivalents - Schedule #1 -->    
+                        <table class="table" >
                             <thead class="thead-inverse">
-                            <tr><td colspan="3" align="center" bgcolor="#ccffcc"><strong>Cash and Equivalents</strong></td></tr>
+                                <tr><td colspan="3" align="center" bgcolor="#ccffcc"><strong>Cash and Equivalents</strong></td></tr>
                                 <tr>
                                     <th></th>    
                                     <th align="center">Description</th>
@@ -132,7 +132,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                         <input type="text" id="prepaid_amount" name="prepaid_amount" size="15" >
                                     </td>
                                 </tr>
-								
+
                                 <!--  Line 7  -->
                                 <tr>
                                     <th scope="row"></th>
@@ -146,11 +146,11 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
 
                             </tbody>
                         </table>
-                        
-                    <br/> 
-                    <br/>
 
-                    <!-- Accounts Receivable - Schedule #2 -->      
+                        <br/> 
+                        <br/>
+
+                        <!-- Accounts Receivable - Schedule #2 -->      
                         <table class="table" >
                             <thead class="thead-inverse">
                                 <tr><td colspan="3" align="center" bgcolor="#ccffcc"><strong>Accounts Receivable</strong></td></tr>
@@ -197,9 +197,9 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                         <input type="text" id="over_90_days" name="over_90_days" size="15" >
                                     </td>
                                 </tr>
-                                
-								<!--  Line 5  -->
-								<tr>
+
+                                <!--  Line 5  -->
+                                <tr>
                                     <th scope="row"></th>
                                     <td align="right"><strong>Total:</strong></td>
                                     <td>
@@ -210,10 +210,10 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
 
                             </tbody>
                         </table>
-                    <br/> 
-                    <br/>
+                        <br/> 
+                        <br/>
 
-                    <!-- Inventory - Schedule #3 -->      
+                        <!-- Inventory - Schedule #3 -->      
                         <table class="table" >
                             <thead class="thead-inverse">
                                 <tr>
@@ -222,11 +222,11 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     </td>
                                 </tr>
                                 <!--<tr>
-                                    <td colspan="5" align="center"><strong>How is Inventory Valued? &nbsp</strong>   
-                                        <input type="radio" name="gender" value="cost"> Cost &nbsp
-                                        <input type="radio" name="gender" value="fair_market"> Fair Market
-                                    </td>
-                                </tr> -->
+<td colspan="5" align="center"><strong>How is Inventory Valued? &nbsp</strong>   
+<input type="radio" name="gender" value="cost"> Cost &nbsp
+<input type="radio" name="gender" value="fair_market"> Fair Market
+</td>
+</tr> -->
                             </thead>     
 
                             <tbody>  
@@ -260,11 +260,11 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                 </tr>
                             </tbody>
                         </table>
-                    <br/> 
-                    <br/> 
+                        <br/> 
+                        <br/> 
 
 
-                    <!-- Other Current Assets - Schedule #4 -->      
+                        <!-- Other Current Assets - Schedule #4 -->      
                         <table class="table" >
                             <thead class="thead-inverse">
                                 <tr>
@@ -275,7 +275,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                             </thead>     
 
                             <tbody>
-							<!--  Line 1  -->
+                                <!--  Line 1  -->
                                 <tr>
                                     <th></th>    
                                     <th align="center" nowrap>Description</th>
@@ -305,12 +305,12 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                 </tr>
                             </tbody>
                         </table>    
-						<strong>Total Assets: <span id="asset_total"></span></strong>
-						<br/>
-						<br/>
-				<button type="submit" onclick="" id="asset_update_button">Update Asset Log</button>
-                </div> 
-				</form>
+                        <strong>Total Assets: <span id="asset_total"></span></strong>
+                        <br/>
+                        <br/>
+                        <button type="submit" onclick="" id="asset_update_button">Update Asset Log</button>
+                        </div> 
+                    </form>
 
                 <!-- footers -->
                 <?php require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>
