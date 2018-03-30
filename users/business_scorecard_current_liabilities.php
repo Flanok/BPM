@@ -65,7 +65,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
 							</thead>
 							</table>
 
-                            <!-- Accounts Payable - Schedule #1 -->    
+                            <!-- Accounts Payable - Schedule #5 -->    
 							<table class="table" >
                             <thead class="thead-inverse">
                             <tr><td colspan="3" align="center" bgcolor="#ccffcc"><strong>Accounts Payable</strong></td></tr>
@@ -128,7 +128,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                     <br/> 
                     <br/>
 						
-					 <!-- Other Current Liabilities - Schedule #2 -->      
+					 <!-- Other Current Liabilities - Schedule #6 -->      
                         <table class="table" >
                             <thead class="thead-inverse">
                                 <tr>
@@ -201,7 +201,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                             </tbody>
                         </table>    
 						
-                    <!-- Inventory - Schedule #3 -->      
+                    <!-- Debt Continued - Schedule #7 Combined -->      
                         <table class="table" >
                             <thead class="thead-inverse">
                                 <tr>
