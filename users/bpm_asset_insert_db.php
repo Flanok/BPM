@@ -34,10 +34,10 @@ $pre_paid_accounts= $_POST['prepaid_amount'];
 $cash_and_equivalents_total= $cash + $checking + $pay_pal_account + $payroll_account_balance + $summary + $pre_paid_accounts;
 
 $current_30_days= $_POST['30_days'];
-$31_60_days= $_POST['31_60_days'];
-$61_90_days= $_POST['61_90_days'];
+$days_31_60= $_POST['31_60_days'];
+$days_61_90= $_POST['61_90_days'];
 $over_90_days= $_POST['over_90_days'];
-$accounts_receivable_total= $current_30_days + $31_60_days + $61_90_days + $over_90_days;
+$accounts_receivable_total= $current_30_days + $days_31_60 + $days_61_90 + $over_90_days;
 
 $supplies= $_POST['supplies_value'];
 $miscellaneous= $_POST['miscellaneous_value'];
@@ -62,8 +62,8 @@ $fields=array(
 	'cash_and_equivalents_total'=>$cash_and_equivalents_total,
 	
 	'current_30_days'=>$current_30_days, 
-	'31_60_days'=>$31_60_days, 
-	'61_90_days'=>$61_90_days, 
+	'31_60_days'=>$days_31_60, 
+	'61_90_days'=>$days_61_90, 
 	'over_90_days'=>$over_90_days, 
 	'accounts_receivable_total'=>$accounts_receivable_total, 
 	
