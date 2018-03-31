@@ -41,7 +41,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                 <h1>Update Your Current Liabilities</h1>
 
                 <div class="col-md-6 col-md-offset-3">    
-                    <form method="post" id="liability_update_form" onsubmit="return checkBusinessName(); return checkForm();"  name="liability_update_form" action="bpm_liability_update_form.php">
+                    <form method="post" id="liability_update_form" onsubmit="return checkBusinessName(); return checkForm();"  name="liability_update_form" action="bpm_liability_insert_db.php">
                         <input type="hidden" name="country" value="">
                         <table class="table" >
                             <thead class="thead-inverse">
@@ -82,7 +82,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     <th scope="row">1</th>
                                     <td nowrap>Current 30 days</td>
                                     <td>
-                                        <input type="text" id="30_days" name="30_days" size="15" >
+                                        <input required type="text" id="30_days" name="30_days" size="15" >
                                     </td>
                                 </tr>
 
@@ -91,7 +91,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     <th scope="row">2</th>
                                     <td>31-60 days</td>
                                     <td>
-                                        <input type="text" id="31_60_days" name="31_60_days" size="15" >
+                                        <input required type="text" id="31_60_days" name="31_60_days" size="15" >
                                     </td>
                                 </tr>
 
@@ -100,7 +100,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     <th scope="row">3</th>
                                     <td>61-90 days</td>
                                     <td>
-                                        <input type="text" id="61_90_days" name="61_90_days" size="15" >
+                                        <input required type="text" id="61_90_days" name="61_90_days" size="15" >
                                     </td>
                                 </tr>
 
@@ -109,7 +109,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     <th scope="row">4</th>
                                     <td>Over 90 days</td>
                                     <td>
-                                        <input type="text" id="over_90_days" name="over_90_days" size="15" >
+                                        <input required type="text" id="over_90_days" name="over_90_days" size="15" >
                                     </td>
                                 </tr>
                                 <!--if two different php documents have the same ID but call javascript can it determine the difference between documents that call it-->
@@ -149,7 +149,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     <th scope="row">1</th>
                                     <td nowrap>Liens / Judgments</td>
                                     <td>
-                                        <input type="text" id="liens_judgments_amount" name="liens_judgments_amount" size="15" >
+                                        <input required type="text" id="liens_judgments_amount" name="liens_judgments_amount" size="15" >
                                     </td>
                                 </tr>
                                 <!--  Line 2  -->  
@@ -157,7 +157,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     <th scope="row">2</th>
                                     <td nowrap>Customer Prepaid Accounts</td>
                                     <td>
-                                        <input type="text" id="customer_prepaid_amount" name="customer_prepaid_amount" size="15" >
+                                        <input required type="text" id="customer_prepaid_amount" name="customer_prepaid_amount" size="15" >
                                     </td>
                                 </tr>
                                 <!--  Line 3  -->   
@@ -165,7 +165,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     <th scope="row">3</th>
                                     <td nowrap>Deferred Salaries</td>
                                     <td>
-                                        <input type="text" id="deferred_salaries_amount" name="deferred_salaries_amount" size="15" >
+                                        <input required type="text" id="deferred_salaries_amount" name="deferred_salaries_amount" size="15" >
                                     </td>
                                 </tr>
                                 <!--  Line 4  -->   
@@ -173,7 +173,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     <th scope="row">4</th>
                                     <td nowrap>Accruals - Taxes, Payroll</td>
                                     <td>
-                                        <input type="text" id="accruals_taxes_payroll_amount" name="accruals_taxes_payroll_amount" size="15" >
+                                        <input required type="text" id="accruals_taxes_payroll_amount" name="accruals_taxes_payroll_amount" size="15" >
                                     </td>
                                 </tr>
                                 <!--  Line 5  -->   
@@ -181,7 +181,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     <th scope="row">5</th>
                                     <td nowrap>Balloon Payments</td>
                                     <td>
-                                        <input type="text" id="balloon_payments_amount" name="balloon_payments_amount" size="15" >
+                                        <input required type="text" id="balloon_payments_amount" name="balloon_payments_amount" size="15" >
                                     </td>
                                 </tr>
                                 <!--  Line 6  -->   
@@ -189,10 +189,10 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     <th scope="row">6</th>
                                     <td nowrap>Accrued Interest</td>
                                     <td>
-                                        <input type="text" id="accrued_interest_amount" name="accrued_interest_amount" size="15" >
+                                        <input required type="text" id="accrued_interest_amount" name="accrued_interest_amount" size="15" >
                                     </td>
                                 </tr>
-                                <!--  Line 4 TOTAL -->
+                                <!--  Line 7 TOTAL -->
                                 <tr>
                                     <td></td>
                                     <td align="right"><strong>Total: </strong></td>
@@ -217,7 +217,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     <th scope="row">1</th>
                                     <td nowrap>Debt Itemization</td>
                                     <td>
-                                        <input type="text" id="debt_itemization" name="debt_itemization" size="15" >
+                                        <input required type="text" id="debt_itemization" name="debt_itemization" size="15" >
                                     </td>
                                 </tr>
                                 <!--  Line 2  -->   
@@ -225,7 +225,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     <th scope="row">2</th>
                                     <td nowrap>Long Term Obligations</td>
                                     <td>
-                                        <input type="text" id="long_term_obligations" name="long_term_obligations" size="15" >
+                                        <input required type="text" id="long_term_obligations" name="long_term_obligations" size="15" >
                                     </td>
                                 </tr>
                                 <!--  Line 3  -->   
@@ -233,7 +233,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     <th scope="row">3</th>
                                     <td nowrap>Leases</td>
                                     <td>
-                                        <input type="text" id="leases" name="leases" size="15" >
+                                        <input required type="text" id="leases" name="leases" size="15" >
                                     </td>
                                 </tr>
                                 <!--  Line 4  -->

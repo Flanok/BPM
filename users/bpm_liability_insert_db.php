@@ -25,76 +25,66 @@ $db = DB::getInstance();
 //$company_id = $_POST['id'];
 //$userID = $user->data()->id;
 
-$cash = $_POST['cash_amount'];
-$checking = $_POST['checking_amount'];
-$pay_pal_account= $_POST['pay_pal_amount'];
-$payroll_account_balance= $_POST['payroll_amount'];
-$savings= $_POST['savings_amount'];
-$pre_paid_accounts= $_POST['prepaid_amount'];
-$cash_and_equivalents_total = $cash + $checking + $pay_pal_account + $payroll_account_balance + $savings + $pre_paid_accounts;
-
+//Accounts Payable 
 $current_30_days= $_POST['30_days'];
 $days_31_60= $_POST['31_60_days'];
 $days_61_90= $_POST['61_90_days'];
 $over_90_days= $_POST['over_90_days'];
-$accounts_receivable_total = $current_30_days + $days_31_60 + $days_61_90 + $over_90_days;
+$accounts_payable_total = $current_30_days + $days_31_60 + $days_61_90 + $over_90_days;
+//Other Current Liabilities
+$liens_judgments_amount = $_POST['liens_judgments_amount'];
+$customer_prepaid_amount = $_POST['customer_prepaid_amount'];
+$deferred_salaries_amount= $_POST['deferred_salaries_amount'];
+$accruals_taxes_payroll_amount= $_POST['accruals_taxes_payroll_amount'];
+$balloon_payments_amount= $_POST['balloon_payments_amount'];
+$accrued_interest_amount= $_POST['accrued_interest_amount'];
+$other_total = $liens_judgments_amount + $customer_prepaid_amount + $deferred_salaries_amount + $accruals_taxes_payroll_amount + $balloon_payments_amount + $accrued_interest_amount; 
+//Debt Continued
+$debt_itemization= $_POST['debt_itemization'];
+$long_term_obligations= $_POST['long_term_obligations'];
+$leases= $_POST['leases'];
+$debt_continued_total = $debt_itemization + $long_term_obligations + $leases;
+//Liability Totals
+$liability_total = $accounts_payable_total + $other_total + $debt_continued_total;
 
-$supplies= $_POST['supplies_value'];
-$miscellaneous= $_POST['miscellaneous_value'];
-$inventory_total = $supplies + $miscellaneous;
-
-$earned_rents_receivable= $_POST['earned_rents_receivable_amount'];
-$current_portion_notes_rec= $_POST['current_portion_notes_rec_amount'];
-$other_total = $earned_rents_receivable + $current_portion_notes_rec;
-
-$asset_total = $cash_and_equivalents_total + $accounts_receivable_total + $inventory_total + $other_total;
 $date_time= date('y/m/d h:i:sa');
 //$business_id = ?
 
 $fields=array(
     
-	'cash'=>$cash,
-	'checking'=>$checking, 
-	'pay_pal_account'=>$pay_pal_account,
-	'payroll_account_balance'=>$payroll_account_balance,
-	'savings'=>$savings,
-	'pre_paid_accounts'=>$pre_paid_accounts, 
-	'cash_and_equivalents_total'=>$cash_and_equivalents_total,
-	
-	'current_30_days'=>$current_30_days, 
-	'31_60_days'=>$days_31_60, 
-	'61_90_days'=>$days_61_90, 
+	'current_to_30_days'=>$current_30_days, 
+	'31_60'=>$days_31_60, 
+	'61_90'=>$days_61_90, 
 	'over_90_days'=>$over_90_days, 
-	'accounts_receivable_total'=>$accounts_receivable_total, 
-	
-	'supplies'=>$supplies, 
-	'miscellaneous'=>$miscellaneous,
-	'inventory_total'=>$inventory_total, 
-	
-	'earned_rents_receivable'=>$earned_rents_receivable,
-	'current_portion_notes_rec'=>$current_portion_notes_rec, 
-	'other_total'=>$other_total, 
-	
-	'asset_total'=>$asset_total
+	'total_accounts_payable'=>$accounts_payable_total, 
+	'liens_judgments'=>$liens_judgments_amount,
+	'customer_prepaid_accounts'=>$customer_prepaid_amount,
+	'deferred_salaries'=>$deferred_salaries_amount,
+	'accruals_taxes_payroll'=>$accruals_taxes_payroll_amount,
+	'balloon_payments'=>$balloon_payments_amount,
+	'accrued_interest'=>$accrued_interest_amount, 
+	'other_total'=>$other_total,
+	'debt_itemization'=>$debt_itemization,
+	'long_term_obligations'=>$long_term_obligations,
+	'leases'=>$leases,
+	'total_liabilities'=>$total_liabilities
 
 	//'business_id'=>$business_id
 
 );
-$db->insert('assets', $fields);
+$db->insert('liabilities', $fields);
 
 //$query = $db->query("SELECT business_id FROM business_scorecard WHERE business_id = ? AND date = ?",[$userID,$date_time]);
 //$id_company = $query->first();
 //$company_id = $id_company->id;
-
 ?>
-
-        <!-- footers -->
         <?php require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>
 
         <!-- Place any per-page javascript here -->
         <?php require_once $abs_us_root.$us_url_root.'users/includes/html_footer.php'; // currently just the closing /body and /html ?>
 
-<!--Redirect to Asset History display-->
+<!--Redirect to Liability History display-->
+<!--$viewLiabilityHistory = "business.php?businessId=$biz_id";-->
 <?php 
-header("Location: bpm_view_asset_history.php");
+header("Location: bpm_view_liability_history.php");
 die();?>
