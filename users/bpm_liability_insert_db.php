@@ -84,3 +84,7 @@ $db->insert('liabilities', $fields);
         <?php require_once $abs_us_root.$us_url_root.'users/includes/html_footer.php'; // currently just the closing /body and /html ?>
 
 <!--Redirect to Liability History display-->
+<!--$viewLiabilityHistory = "business.php?businessId=$biz_id";-->
+<?php 
+header("Location: bpm_view_liability_history.php");
+die();?>

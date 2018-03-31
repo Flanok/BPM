@@ -95,3 +95,6 @@ $db->insert('assets', $fields);
         <?php require_once $abs_us_root.$us_url_root.'users/includes/html_footer.php'; // currently just the closing /body and /html ?>
 
 <!--Redirect to Asset History display-->
+<?php 
+header("Location: bpm_view_asset_history.php");
+die();?>
