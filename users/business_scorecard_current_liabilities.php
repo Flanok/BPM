@@ -41,7 +41,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                 <h1>Update Your Current Liabilities</h1>
 
                 <div class="col-md-6 col-md-offset-3">    
-                    <form method="post" id="liability_update_form" onsubmit="return checkBusinessName(); return checkForm();"  name="liability_update_form" action="bpm_liability_update_form.php">
+                    <form method="post" id="liability_update_form" onsubmit="return checkBusinessName(); return checkForm();"  name="liability_update_form" action="bpm_liability_insert_db.php">
                         <input type="hidden" name="country" value="">
                         <table class="table" >
                             <thead class="thead-inverse">

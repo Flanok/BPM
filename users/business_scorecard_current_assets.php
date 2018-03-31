@@ -83,7 +83,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     <th scope="row">1</th>
                                     <td>Cash</td>
                                     <td>
-                                        <input type="text" id="cash_amount" name="cash_amount" size="15" >
+                                        <input required type="text" id="cash_amount" name="cash_amount" size="15" >
                                     </td>
 
                                 </tr>
@@ -93,7 +93,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     <th scope="row">2</th>
                                     <td>Checking</td>
                                     <td>
-                                        <input type="text" id="checking_amount" name="checking_amount" size="15" >
+                                        <input required type="text" id="checking_amount" name="checking_amount" size="15" >
                                     </td>
                                 </tr>
 
@@ -102,7 +102,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     <th scope="row">3</th>
                                     <td>PayPal Account</td>
                                     <td>
-                                        <input type="text" id="pay_pal_amount" name="pay_pal_amount" size="15" >
+                                        <input required type="text" id="pay_pal_amount" name="pay_pal_amount" size="15" >
                                     </td>
                                 </tr>
 
@@ -111,7 +111,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     <th scope="row">4</th>
                                     <td>Payroll Account Balance</td>
                                     <td>
-                                        <input type="text" id="payroll_amount" name="payroll_amount" size="15" >
+                                        <input required type="text" id="payroll_amount" name="payroll_amount" size="15" >
                                     </td>
                                 </tr>
 
@@ -120,7 +120,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     <th scope="row">5</th>
                                     <td>Savings</td>
                                     <td>
-                                        <input type="text" id="savings_amount" name="savings_amount" size="15" >
+                                        <input required type="text" id="savings_amount" name="savings_amount" size="15" >
                                     </td>
                                 </tr>
 
@@ -129,7 +129,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     <th scope="row">6</th>
                                     <td>Pre-paid accounts</td>
                                     <td>
-                                        <input type="text" id="prepaid_amount" name="prepaid_amount" size="15" >
+                                        <input required type="text" id="prepaid_amount" name="prepaid_amount" size="15" >
                                     </td>
                                 </tr>
 
@@ -167,7 +167,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     <th scope="row">1</th>
                                     <td nowrap>Current 30 days</td>
                                     <td>
-                                        <input type="text" id="30_days" name="30_days" size="15" >
+                                        <input required type="text" id="30_days" name="30_days" size="15" >
                                     </td>
                                 </tr>
 
@@ -176,7 +176,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     <th scope="row">2</th>
                                     <td>31-60 days</td>
                                     <td>
-                                        <input type="text" id="31_60_days" name="31_60_days" size="15" >
+                                        <input required type="text" id="31_60_days" name="31_60_days" size="15" >
                                     </td>
                                 </tr>
 
@@ -185,7 +185,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     <th scope="row">3</th>
                                     <td>61-90 days</td>
                                     <td>
-                                        <input type="text" id="61_90_days" name="61_90_days" size="15" >
+                                        <input required type="text" id="61_90_days" name="61_90_days" size="15" >
                                     </td>
                                 </tr>
 
@@ -194,7 +194,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     <th scope="row">4</th>
                                     <td>Over 90 days</td>
                                     <td>
-                                        <input type="text" id="over_90_days" name="over_90_days" size="15" >
+                                        <input required type="text" id="over_90_days" name="over_90_days" size="15" >
                                     </td>
                                 </tr>
 
@@ -223,8 +223,8 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                 </tr>
                                 <!--<tr>
 <td colspan="5" align="center"><strong>How is Inventory Valued? &nbsp</strong>   
-<input type="radio" name="gender" value="cost"> Cost &nbsp
-<input type="radio" name="gender" value="fair_market"> Fair Market
+<input required type="radio" name="gender" value="cost"> Cost &nbsp
+<input required type="radio" name="gender" value="fair_market"> Fair Market
 </td>
 </tr> -->
                             </thead>     
@@ -241,7 +241,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     <th scope="row">1</th>
                                     <td nowrap>Supplies</td>
                                     <td>
-                                        <input type="text" id="supplies_value" name="supplies_value" size="15" >
+                                        <input required type="text" id="supplies_value" name="supplies_value" size="15" >
                                     </td>
                                 </tr>
                                 <!--  Line 3  -->   
@@ -249,7 +249,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     <th scope="row">2</th>
                                     <td nowrap>Miscellaneous</td>
                                     <td>
-                                        <input type="text" id="miscellaneous_value" name="miscellaneous_value" size="15" >
+                                        <input required type="text" id="miscellaneous_value" name="miscellaneous_value" size="15" >
                                     </td>
                                 </tr>
                                 <!--  Line 4  -->
@@ -286,7 +286,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     <th scope="row">1</th>
                                     <td nowrap>Earned Rents Receivable</td>
                                     <td>
-                                        <input type="text" id="earned_rents_receivable_amount" name="earned_rents_receivable_amount" size="15" >
+                                        <input required type="text" id="earned_rents_receivable_amount" name="earned_rents_receivable_amount" size="15" >
                                     </td>
                                 </tr>
                                 <!--  Line 3  -->   
@@ -294,7 +294,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
                                     <th scope="row">2</th>
                                     <td nowrap>Current Portion Notes Rec.</td>
                                     <td>
-                                        <input type="text" id="current_portion_notes_rec_amount" name="current_portion_notes_rec_amount" size="15" >
+                                        <input required type="text" id="current_portion_notes_rec_amount" name="current_portion_notes_rec_amount" size="15" >
                                     </td>
                                 </tr>
                                 <!--  Line 4  -->
