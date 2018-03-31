@@ -29,7 +29,6 @@ $company_name = $results[0]->company_name;
         echo "<h1>I pity the foo - $company_name</h1>
         
         <!--        Score Card-->
-        <!--        Needs to be fixed-->
         <a class='btn btn-primary ' href='business_scorecard_business_list_by_date.php?id=$id' role='button'>Score Card</a>
         <br/>
 
@@ -40,12 +39,12 @@ $company_name = $results[0]->company_name;
 
         <!--        Assets-->
         <br/>
-        <a class='btn btn-primary ' href='business_scorecard_current_assets.php' role='button'>Assets</a>
+        <a class='btn btn-primary ' href='business_scorecard_current_assets.php' role='button'>Update Assets</a>
         <br/>
 
         <!--        Liabilities-->
         <br/>
-        <a class='btn btn-primary ' href='business_scorecard_current_liabilities.php' role='button'>Liabilities</a>
+        <a class='btn btn-primary ' href='business_scorecard_current_liabilities.php' role='button'>Update Liabilities</a>
         <br/>
 
         <!--        Edit Info-->
