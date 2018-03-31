@@ -26,7 +26,7 @@ $company_name = $results[0]->company_name;
     <div class="container-fluid">
         <?php
         
-        echo "<h1>I pity the foo - $company_name</h1>
+        echo "<h1>Company: $company_name</h1>
         
         <!--        Score Card-->
         <a class='btn btn-primary ' href='business_scorecard_business_list_by_date.php?id=$id' role='button'>Score Card</a>
@@ -39,7 +39,7 @@ $company_name = $results[0]->company_name;
 
         <!--        Assets-->
         <br/>
-        <a class='btn btn-primary ' href='business_scorecard_current_assets.php' role='button'>Update Assets</a>
+        <a class='btn btn-primary ' href='business_scorecard_current_assets.php?id=$id' role='button'>Update Assets</a>
         <br/>
 
         <!--        Liabilities-->

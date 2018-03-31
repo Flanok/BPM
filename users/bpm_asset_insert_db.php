@@ -10,6 +10,7 @@
 require_once 'init.php';
 require_once $abs_us_root.$us_url_root.'users/includes/header.php';
 require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
+$id=$_GET['id'];
 
 if($user->isLoggedIn()) { $thisUserID = $user->data()->id;} else { $thisUserID = 0; }
 
@@ -96,5 +97,5 @@ $db->insert('assets', $fields);
 
 <!--Redirect to Asset History display-->
 <?php 
-header("Location: bpm_view_asset_history.php");
+header("Location: business_scorecard_current_assets_view.php?id=$id");
 die();?>
