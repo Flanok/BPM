@@ -60,7 +60,8 @@ $results = $users->results();
             //number_format("1000000",2)
            foreach($results as $r) {
            echo "<tr>";
-           echo "<th>".$r->date_time."</th>";
+           $date = date_create($r->date_time);
+               echo "<th>".date_format($date, 'm/d/Y')."</th>";
 		   
 		   echo "<td>$ ".number_format($r->cash,2)."</td>";
 		   echo "<td>$ ".number_format($r->checking,2)."</td>";
@@ -101,8 +102,8 @@ $results = $users->results();
             //number_format("1000000",2)
            foreach($results as $r) {
            echo "<tr>";
-           echo "<th>".$r->date_time."</th>";
-		   
+           $date = date_create($r->date_time);
+               echo "<th>".date_format($date, 'm/d/Y')."</th>";
 		   echo "<td>$ ".number_format($r->current_30_days,2)."</td>";
 		   echo "<td>$ ".number_format($r->days_31_60,2)."</td>";
                echo "<td>$ ".number_format($r->days_61_90,2)."</td>";
@@ -138,7 +139,8 @@ $results = $users->results();
             //number_format("1000000",2)
            foreach($results as $r) {
            echo "<tr>";
-           echo "<th>".$r->date_time."</th>";
+           $date = date_create($r->date_time);
+               echo "<th>".date_format($date, 'm/d/Y')."</th>";
 		   echo "<td>$ ".number_format($r->supplies,2)."</td>";
 		   echo "<td>$ ".number_format($r->miscellaneous,2)."</td>";
                echo "<td>$ ".number_format($r->inventory_total,2)."</td>";
@@ -173,7 +175,8 @@ $results = $users->results();
             //number_format("1000000",2)
            foreach($results as $r) {
            echo "<tr>";
-           echo "<th>".$r->date_time."</th>";
+           $date = date_create($r->date_time);
+               echo "<th>".date_format($date, 'm/d/Y')."</th>";
 		   echo "<td>$ ".number_format($r->earned_rents_receivable,2)."</td>";
 		   echo "<td>$ ".number_format($r->current_portion_notes_rec,2)."</td>";
                echo "<td>$ ".number_format($r->other_total,2)."</td>";
@@ -205,7 +208,8 @@ $results = $users->results();
             //number_format("1000000",2)
            foreach($results as $r) {
            echo "<tr>";
-           echo "<th>".$r->date_time."</th>";
+           $date = date_create($r->date_time);
+               echo "<th>".date_format($date, 'm/d/Y')."</th>";
 		   echo "<td>$ ".number_format($r->asset_total,2)."</td>";
            echo "</tr>";
            }?>
