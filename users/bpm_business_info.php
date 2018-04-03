@@ -27,7 +27,7 @@ $company_name = $results[0]->company_name;
         <?php
         
         echo "<h1>Company: $company_name</h1>
-        
+        <div class='col-md-10 col-md-offset-1'> 
         <!--        Score Card-->
         <a class='btn btn-primary ' href='business_scorecard_business_list_by_date.php?id=$id' role='button'>Score Card</a>
         <br/>
@@ -37,19 +37,31 @@ $company_name = $results[0]->company_name;
         <a class='btn btn-primary ' href='bpm_data_log.php' role='button'>Data Log</a>
         <br/>
 
-        <!--        Assets-->
+        <!--        Assets Update-->
         <br/>
         <a class='btn btn-primary ' href='business_scorecard_current_assets.php?id=$id' role='button'>Update Assets</a>
         <br/>
 
-        <!--        Liabilities-->
+		<!--        Asset History-->
+        <br/>
+        <a class='btn btn-primary ' href='bpm_view_asset_history.php?id=$id' role='button'>View Asset History</a>
+        <br/>
+
+        <!--        Liabilities Update-->
         <br/>
         <a class='btn btn-primary ' href='business_scorecard_current_liabilities.php' role='button'>Update Liabilities</a>
+        <br/>
+
+		<!--        Liabilities History-->
+        <br/>
+        <a class='btn btn-primary ' href='bpm_view_liability_history.php?id=$id' role='button'>View Liability History</a>
         <br/>
 
         <!--        Edit Info-->
         <br/>
         <a class='btn btn-primary ' href='business_scorecard_update.php?id=$id' role='button'>Edit Info</a><br/>";
+
+
 ?>
 
 <h2>Then the business Pulse Manager Info will be displayed underneath</h2>
