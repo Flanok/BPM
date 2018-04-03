@@ -53,8 +53,8 @@ $date_time= date('y/m/d h:i:sa');
 $fields=array(
     
 	'current_to_30_days'=>$current_30_days, 
-	'31_60'=>$days_31_60, 
-	'61_90'=>$days_61_90, 
+	'days_31_60'=>$days_31_60, 
+	'days_61_90'=>$days_61_90, 
 	'over_90_days'=>$over_90_days, 
 	'total_accounts_payable'=>$accounts_payable_total, 
 	'liens_judgments'=>$liens_judgments_amount,
