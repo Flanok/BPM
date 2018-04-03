@@ -63,8 +63,8 @@ $fields=array(
 	'cash_and_equivalents_total'=>$cash_and_equivalents_total,
 	
 	'current_30_days'=>$current_30_days, 
-	'31_60_days'=>$days_31_60, 
-	'61_90_days'=>$days_61_90, 
+	'days_31_60'=>$days_31_60, 
+	'days_61_90'=>$days_61_90, 
 	'over_90_days'=>$over_90_days, 
 	'accounts_receivable_total'=>$accounts_receivable_total, 
 	
