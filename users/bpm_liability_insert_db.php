@@ -67,7 +67,7 @@ $fields=array(
 	'debt_itemization'=>$debt_itemization,
 	'long_term_obligations'=>$long_term_obligations,
 	'leases'=>$leases,
-	'total_liabilities'=>$total_liabilities
+	'total_liabilities'=>$liability_total
 
 	//'business_id'=>$business_id
 

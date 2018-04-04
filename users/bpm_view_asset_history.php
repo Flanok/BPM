@@ -23,7 +23,7 @@ date_default_timezone_set("America/Boise");
 
 $id=$_GET['id'];
 $userID = $user->data()->id;
-$users = $db->query("SELECT * FROM assets");
+$users = $db->query("SELECT * FROM assets ORDER BY date_time DESC");
 $results = $users->results();
 ?>
 <div id="page-wrapper">

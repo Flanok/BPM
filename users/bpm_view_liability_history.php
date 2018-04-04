@@ -63,7 +63,7 @@ date_default_timezone_set("America/Boise");
 
 $id=$_GET['id'];
 $userID = $user->data()->id;
-$users = $db->query("SELECT * FROM liabilities");
+$users = $db->query("SELECT * FROM liabilities ORDER BY date_time DESC");
 $results = $users->results();
 ?>
 
@@ -97,7 +97,7 @@ $results = $users->results();
             //number_format("1000000",2)
            foreach($results as $r) {
            echo "<tr>";
-           $date = date_create($r->date);
+           $date = date_create($r->date_time);
                echo "<th>".date_format($date, 'm/d/Y')."</th>";
 		   
 		   echo "<td>$ ".number_format($r->current_to_30_days,2)."</td>";
@@ -140,7 +140,7 @@ $results = $users->results();
             //number_format("1000000",2)
            foreach($results as $r) {
            echo "<tr>";
-           $date = date_create($r->date);
+           $date = date_create($r->date_time);
                echo "<th>".date_format($date, 'm/d/Y')."</th>";
 		   
 		   echo "<td>$ ".number_format($r->liens_judgments,2)."</td>";
@@ -182,7 +182,7 @@ $results = $users->results();
             //number_format("1000000",2)
            foreach($results as $r) {
            echo "<tr>";
-           $date = date_create($r->date);
+           $date = date_create($r->date_time);
                echo "<th>".date_format($date, 'm/d/Y')."</th>";
 		   
 		   echo "<td>$ ".number_format($r->debt_itemization,2)."</td>";
