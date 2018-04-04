@@ -1,10 +1,4 @@
-<style>
-    td {
-        text-align: center;
-        margin-right: 5px;
-    }
 
-</style>
 
 
 <?php
@@ -69,28 +63,144 @@ date_default_timezone_set("America/Boise");
 
 $id=$_GET['id'];
 $userID = $user->data()->id;
-$users = $db->query("SELECT * FROM liabilities WHERE users_id = $userID AND id = $id");
+$users = $db->query("SELECT * FROM liabilities");
 $results = $users->results();
 ?>
 
-
-<h1>Liability History Table Will Go Here. Link from main page needs to be added. </h1>
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <?php
-                foreach($results as $r) {
-                    echo "<tr><td>Company Name: </td><td>".$r->company_name."</td></tr><br>";
-                    echo "<tr><td>Date: </td><td>".$r->date_time."</td></tr>";
-                    echo "<div style='padding:30px 0 0 10px; margin: 5px;'><table border='1'>";
-                    echo "<tr><td></td><td>Key Areas of Management</td><td>Weight</td><td>Grade</td><td>Score</td><td>Score Potential</td><td>Below Potential</td></tr>";
 
-                    if ($r->users_id == $userID && $r->id == $id )
-                        echo "<tr><td>1</td><td>".$r->experience_weight."</td><td>".$r->experience_grade."</td><td>".($r->experience_weight)*($r->experience_grade)."</td><td>".($r->experience_weight)*(10)."</td><td>".((($r->experience_weight)*(10))-(($r->experience_weight)*($r->experience_grade)))."</td></tr>";
-                }
-                echo "</table></div>";
-                ?>
+                
+                <!-- ACCOUNTS PAYABLE  -->                
+                
+<div class="col-md-10 col-md-offset-1"> 
+	<table class="table" >
+    <thead class="thead-inverse">
+    <tr><td colspan="8" align="Center" bgcolor="#ccffcc"><strong>Accounts Payable</strong></td></tr>
+    <tr>
+        <th align='center'>Date</th>
+        <th align='center'>Current 30 days</th>
+		<th align='center'>31-60 days</th>
+		<th align='center'>61-90 days</th>
+		<th align='center'>Over 90 days</th>        
+		<th align='center'>Total</th>
+    </tr>
+    </thead>
+    <tbody>
+        <!--  Line 1  -->
+        <div class="row">
+        <tr>
+            
+		   <?php
+            //number_format("1000000",2)
+           foreach($results as $r) {
+           echo "<tr>";
+           $date = date_create($r->date);
+               echo "<th>".date_format($date, 'm/d/Y')."</th>";
+		   
+		   echo "<td>$ ".number_format($r->current_to_30_days,2)."</td>";
+		   echo "<td>$ ".number_format($r->days_31_60,2)."</td>";
+		   echo "<td>$ ".number_format($r->days_61_90,2)."</td>";
+		   echo "<td>$ ".number_format($r->over_90_days,2)."</td>";
+               echo "<td>$ ".number_format($r->total_accounts_payable,2)."</td>";
+           echo "</tr>";
+           }?>
+		</tr>
+        </div>
+	</tbody>
+     </table>
+            </div>
+                
+ 
+                                <!-- OTHER CURRENT LIABILITIES  -->                
+                
+<div class="col-md-10 col-md-offset-1"> 
+	<table class="table" >
+    <thead class="thead-inverse">
+    <tr><td colspan="8" align="Center" bgcolor="#ccffcc"><strong>Accounts Payable</strong></td></tr>
+    <tr>
+        <th align='center'>Date</th>
+        <th align='center'>Liens/Judgments</th>
+		<th align='center'>Customer Prepaid Accounts</th>
+		<th align='center'>Deferred Salaries</th>
+		<th align='center'>Accruals- Taxes, Payroll</th> 
+        <th align='center'>Balloon Payments</th>
+		<th align='center'>Accrued Interest</th> 
+		<th align='center'>Total</th>
+    </tr>
+    </thead>
+    <tbody>
+        <!--  Line 1  -->
+        <div class="row">
+        <tr>
+            
+		   <?php
+            //number_format("1000000",2)
+           foreach($results as $r) {
+           echo "<tr>";
+           $date = date_create($r->date);
+               echo "<th>".date_format($date, 'm/d/Y')."</th>";
+		   
+		   echo "<td>$ ".number_format($r->liens_judgments,2)."</td>";
+		   echo "<td>$ ".number_format($r->customer_prepaid_accounts,2)."</td>";
+		   echo "<td>$ ".number_format($r->deferred_salaries,2)."</td>";
+		   echo "<td>$ ".number_format($r->accruals_taxes_payroll,2)."</td>";
+           echo "<td>$ ".number_format($r->balloon_payments,2)."</td>";
+           echo "<td>$ ".number_format($r->accrued_interest,2)."</td>";
+           echo "<td>$ ".number_format($r->other_total,2)."</td>";
+           echo "</tr>";
+           }?>
+		</tr>
+        </div>
+	</tbody>
+     </table>
+            </div>
+                
+                
+                               <!-- DEBT CONTINUED  -->                
+                
+<div class="col-md-10 col-md-offset-1"> 
+	<table class="table" >
+    <thead class="thead-inverse">
+    <tr><td colspan="8" align="Center" bgcolor="#ccffcc"><strong>Debt Continued</strong></td></tr>
+    <tr>
+        <th align='center'>Date</th>
+        <th align='center'>Debt Itemization</th>
+		<th align='center'>Long Term Obligations</th>
+		<th align='center'>Leases</th> 
+		<th align='center'>Total</th>
+    </tr>
+    </thead>
+    <tbody>
+        <!--  Line 1  -->
+        <div class="row">
+        <tr>
+            
+		   <?php
+            //number_format("1000000",2)
+           foreach($results as $r) {
+           echo "<tr>";
+           $date = date_create($r->date);
+               echo "<th>".date_format($date, 'm/d/Y')."</th>";
+		   
+		   echo "<td>$ ".number_format($r->debt_itemization,2)."</td>";
+		   echo "<td>$ ".number_format($r->long_term_obligations,2)."</td>";
+		   echo "<td>$ ".number_format($r->leases,2)."</td>";
+           
+    // THIS QUERY DOES NOT SEEM TO BE CORRECT FOR TOTAL LIABILITIES!!!!
+           echo "<td>$ ".number_format($r->total_liabilities,2)."</td>";
+           echo "</tr>";
+           }?>
+		</tr>
+        </div>
+	</tbody>
+     </table>
+            </div>
+                
+                
+                
             </div>
         </div>
     </div>
