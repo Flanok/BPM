@@ -7,7 +7,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
 <?php
 $id=$_GET['id'];
 $userID = $user->data()->id;
-$users = $db->query("SELECT a.asset_total, l.total_liabilities, a.date_time FROM assets a JOIN liabilities l ON a.date_time = l.date_time ORDER BY a.date_time DESC");
+$users = $db->query("SELECT a.asset_total, a.cash_and_equivalents_total, a.accounts_receivable_total, l.total_accounts_payable, l.total_liabilities, a.date_time FROM assets a JOIN liabilities l ON CAST(a.date_time AS DATE) = CAST(l.date_time  AS DATE) ORDER BY a.date_time DESC");
 $results = $users->results();
 
 ?>
@@ -21,16 +21,16 @@ $results = $users->results();
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12 col-md-offset-0">
+            <div class="col-md-15 col-md-offset-0">
 
 <h1>Asset History Table Will Go Here. Link from main page needs to be added. </h1>
  
 <!-- CASH AND EQUIVALENTS  -->                
                 
-<div class="col-md-10 col-md-offset-1"> 
+<div class="col-md-12 col-md-offset-0"> 
 	<table class="table" >
     <thead class="thead-inverse">
-    <tr><td colspan="8" align="center" bgcolor="#ccffcc"><strong>Cash and Equivalents</strong></td></tr>
+    <tr><td colspan="12" align="center" bgcolor="#ccffcc"><strong>Cash and Equivalents</strong></td></tr>
     <tr>
         <th align='center'>Date</th>
         <th align='center'>Current Assets</th>
@@ -60,12 +60,16 @@ $results = $users->results();
                echo "<th>".date_format($date, 'm/d/Y')."</th>";
 
                echo "<td>$ ".number_format($r->asset_total,2)."</td>";
-    //         echo "<td>$ ".number_format($r->total_liabilities,2)."</td>";
-    //		   echo "<td>$ ".number_format($r->pay_pal_account,2)."</td>";
-    //		   echo "<td>$ ".number_format($r->payroll_account_balance,2)."</td>";
-    //		   echo "<td>$ ".number_format($r->savings,2)."</td>";
-    //		   echo "<td>$ ".number_format($r->pre_paid_accounts,2)."</td>";
-    //           echo "<td>$ ".number_format($r->cash_and_equivalents_total,2)."</td>";
+		       echo "<td>$ ".number_format($r->total_liabilities,2)."</td>";
+			   echo "<td>$</td>";
+			   echo "<td>%</td>";
+			   echo "<td>%</td>";
+			   echo "<td></td>";
+               echo "<td>$ ".number_format($r->cash_and_equivalents_total,2)."</td>";
+			   echo "<td>$</td>";
+			   echo "<td>$".number_format($r->accounts_receivable_total,2)."</td>";
+			   echo "<td>$".number_format($r->total_accounts_payable,2)."</td>";
+			   echo "<td>$</td>";
                echo "</tr>";
             }?>
 		</tr>
