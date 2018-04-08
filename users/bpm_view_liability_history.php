@@ -149,7 +149,7 @@ $company_name = $result[0]->name;
                 <div class="col-md-10 col-md-offset-1"> 
 	<table class="table" >
     <thead class="thead-inverse">
-    <tr><td colspan="8" align="center" bgcolor="#ccffcc"><strong>Total Assets</strong></td></tr>
+    <tr><td colspan="8" align="center" bgcolor="#ccffcc"><strong>Total Liabilities</strong></td></tr>
     <tr>
         <th align='center'>Date</th>
 		<th align='center'>Total Liabilities</th>
