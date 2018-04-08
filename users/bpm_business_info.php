@@ -44,7 +44,7 @@ $company_name = $results[0]->name;
 
         <!--        Assets Update-->
         <br/>
-        <a class='btn btn-primary ' href='business_scorecard_current_assets.php?id=$id' role='button'>Update Assets</a>
+        <a class='btn btn-primary ' href='business_scorecard_current_assets.php?id=$id' role='button'>Insert Assets</a>
         <br/>
 
 		<!--        Asset History-->
@@ -54,7 +54,7 @@ $company_name = $results[0]->name;
 
         <!--        Liabilities Update-->
         <br/>
-        <a class='btn btn-primary ' href='business_scorecard_current_liabilities.php?id=$id' role='button'>Update Liabilities</a>
+        <a class='btn btn-primary ' href='business_scorecard_current_liabilities.php?id=$id' role='button'>Insert Liabilities</a>
         <br/>
 
 		<!--        Liabilities History-->

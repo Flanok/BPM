@@ -137,9 +137,7 @@ $company_name = $result[0]->name;
 		   echo "<td>$ ".number_format($r->debt_itemization,2)."</td>";
 		   echo "<td>$ ".number_format($r->long_term_obligations,2)."</td>";
 		   echo "<td>$ ".number_format($r->leases,2)."</td>";
-           
-    // THIS QUERY DOES NOT SEEM TO BE CORRECT FOR TOTAL LIABILITIES!!!!
-           echo "<td>$ ".number_format($r->total_liabilities,2)."</td>";
+		   echo "<td>$ ".number_format($r->debt_continued_total,2)."</td>";
            echo "</tr>";
            }?>
 		</tr>
@@ -148,7 +146,34 @@ $company_name = $result[0]->name;
      </table>
             </div>
                 
-                
+                <div class="col-md-10 col-md-offset-1"> 
+	<table class="table" >
+    <thead class="thead-inverse">
+    <tr><td colspan="8" align="center" bgcolor="#ccffcc"><strong>Total Assets</strong></td></tr>
+    <tr>
+        <th align='center'>Date</th>
+		<th align='center'>Total Liabilities</th>
+    </tr>
+    </thead>
+    <tbody>
+        <!--  Line 1  -->
+        <div class="row">
+        <tr>
+            
+		   <?php
+            //number_format("1000000",2)
+           foreach($results as $r) {
+           echo "<tr>";
+           $date = date_create($r->date_time);
+               echo "<th>".date_format($date, 'm/d/Y')."</th>";
+           echo "<td>$ ".number_format($r->total_liabilities,2)."</td>";
+           echo "</tr>";
+           }?>
+		</tr>
+        </div>
+	</tbody>
+     </table>
+            </div> 
                 
             </div>
         </div>
