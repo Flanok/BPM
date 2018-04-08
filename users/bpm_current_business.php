@@ -38,10 +38,9 @@ $biz = $stmt->results();
         <br/>
         <h4>Add New Business: </h4> 
             <form method="post" action="bpm_add_business.php">
-				Company Name:    <input id="company_name" style="margin:0 1em 0 1em; width: 50%;" type="text"/>
-				<button type="submit">Add business</button>
+				Company Name:<input style="margin:0 1em 0 1em; width: 50%;" type="text" id="company_name" name="company_name" size="40" required>    
+				<button type="submit">Add Business</button>
             </form>
-        </p>
         </div>
     </div>
 </div>

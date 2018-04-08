@@ -62,10 +62,10 @@ $company_name = $results[0]->name;
         <a class='btn btn-primary ' href='bpm_view_liability_history.php?id=$id' role='button'>View Liability History</a>
         <br/>
 
-        <!--        Edit Info-->
+        <!--        Edit Info
         <br/>
-        <a class='btn btn-primary ' href='business_scorecard_update.php?id=$id' role='button'>Edit Info</a><br/>";
-
+        <a class='btn btn-primary ' href='business_scorecard_update.php?id=$id' role='button'>Edit Info</a><br/>
+		-->";
 
 ?>
 

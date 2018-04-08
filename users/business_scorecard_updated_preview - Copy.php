@@ -17,9 +17,7 @@ date_default_timezone_set("America/Boise");
 
 
 $db = DB::getInstance();
-$company_id = $_POST['id'];
 $userID = $user->data()->id;
-$company_name= $_POST['company_name'];
 $date_time= date('y/m/d h:i:sa');
 $experience_weight= $_POST['experience_weight'];
 $experience_grade= $_POST['experience_grade'];
@@ -64,7 +62,6 @@ $total_below_potential = $total_score_potential - $total_score;
 
 $fields=array(
     //'id'=>$company_id,
-    'company_name'=>$company_name,
     'date_time'=>$date_time,
     'experience_weight'=>$experience_weight,
     'experience_grade'=>$experience_grade,
@@ -86,9 +83,9 @@ $fields=array(
     'managing_rec_pay_grade'=>$rec_pay_grade,
     'cash_controls_weight'=>$cash_weight,
     'cash_controls_grade'=>$cash_grade,
-    'users_id'=>$userID
+    'business_id'=>$id
 );
-$db->update('business_scorecard',$company_id,$fields);
+$db->update('business_scorecard',$fields);
 
 //    $query = $db->query("SELECT id FROM business_scorecard WHERE users_id = ? AND date_time = ?",[$userID,$date_time]);
 //  $id_company = $query->first();
