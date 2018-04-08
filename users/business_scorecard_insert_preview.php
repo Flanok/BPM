@@ -21,7 +21,11 @@ $userQ = $db->query("SELECT * FROM users LEFT JOIN profiles ON users.id = user_i
 // group active, inactive, on naughty step
 $users = $userQ->results();
 
+$id=$_GET['id'];
 
+$stmt = $db->query("SELECT name FROM business WHERE id = $id");
+$result = $stmt->results();
+$company_name = $result[0]->name;
 
 date_default_timezone_set("America/Boise");  
 
@@ -31,7 +35,6 @@ date_default_timezone_set("America/Boise");
 $db = DB::getInstance();
 
 $userID = $user->data()->id;
-$company_name= $_POST['company_name'];
 $date_time= date('y/m/d h:i:sa');
 $experience_weight= $_POST['experience_weight'];
 $experience_grade= $_POST['experience_grade'];
@@ -73,9 +76,7 @@ $total_score_potential = $total_weight * 10;
 $total_below_potential = $total_score_potential - $total_score;
 
 
-
 $fields=array(
-    'company_name'=>$company_name,
     'date_time'=>$date_time,
     'experience_weight'=>$experience_weight,
     'experience_grade'=>$experience_grade,
@@ -97,13 +98,9 @@ $fields=array(
     'managing_rec_pay_grade'=>$rec_pay_grade,
     'cash_controls_weight'=>$cash_weight,
     'cash_controls_grade'=>$cash_grade,
-    'users_id'=>$userID
+	'business_id'=>$id
 );
 $db->insert('business_scorecard',$fields);
-
-$query = $db->query("SELECT id FROM business_scorecard WHERE users_id = ? AND date_time = ?",[$userID,$date_time]);
-$id_company = $query->first();
-$company_id = $id_company->id;
 
 //$userID = $user->data()->id;
 
@@ -117,7 +114,7 @@ $company_id = $id_company->id;
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <h1>This is the main content section</h1>
+                <h1>Your <?php echo $company_name?> Scorecard Was Entered</h1>
 
 
 
@@ -134,12 +131,7 @@ $company_id = $id_company->id;
 
                     <table class="table table-striped">
                         <thead class="thead-inverse">
-                            <tr>
-                                <th></th>    
-                                <th>Company Name</th>
-                                <th colspan="3"><p type="text" id="company_name" name="company_name" size="40" ><?php echo $company_name ?></p> </th>
-                                <th colspan="2" id="company_name_required" style="color:red"></th>
-                            </tr>
+                            <tr></tr>
                             <tr>
                                 <th></th>    
                                 <th>Date</th>
@@ -332,7 +324,6 @@ $company_id = $id_company->id;
                                 <td style="border-bottom: 3px double #000"><p id="total_below_potential"><?php echo $total_below_potential ?></p></td>
                             </tr>
 
-                            <tr><td><a href='business_scorecard_update.php?id=<?php echo $company_id; ?>'>Edit</a></td></tr>
                         </tbody>
                     </table>
                     <!--  <input type="button" value="Edit" onClick="business_scorecard_update.php">

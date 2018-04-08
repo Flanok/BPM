@@ -1,20 +1,3 @@
-
-
-<?php
-
-//require_once 'init.php';
-//require_once $abs_us_root.$us_url_root.'users/includes/header.php';
-//require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
-//date_default_timezone_set("America/Boise");  
-//
-//
-//$id=$_GET['id'];
-//$userID = $user->data()->id;
-//$users = $db->query("SELECT * FROM business_scorecard WHERE users_id = $userID AND id = $id");
-//$results = $users->results();
-?>
-
-
 <?php
 require_once 'init.php';
 require_once $abs_us_root.$us_url_root.'users/includes/header.php';
@@ -23,15 +6,20 @@ date_default_timezone_set("America/Boise");
 
 $id=$_GET['id'];
 $userID = $user->data()->id;
-$users = $db->query("SELECT * FROM assets ORDER BY date_time DESC");
+$users = $db->query("SELECT * FROM assets WHERE business_id = $id ORDER BY date_time DESC");
 $results = $users->results();
+
+$stmt = $db->query("SELECT name FROM business WHERE id = $id");
+$result = $stmt->results(); 
+$company_name = $result[0]->name;
+
 ?>
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 col-md-offset-0">
 
-<h1>Asset History Table Will Go Here. Link from main page needs to be added. </h1>
+<h1>Asset History For <?php echo $company_name?></h1>
  
 <!-- CASH AND EQUIVALENTS  -->                
                 

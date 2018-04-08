@@ -22,6 +22,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 require_once 'init.php';
 require_once $abs_us_root.$us_url_root.'users/includes/header.php';
 require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
+
+$id=$_GET['id'];
+
+$stmt = $db->query("SELECT name FROM business WHERE id = $id");
+$results = $stmt->results(); 
+$company_name = $results[0]->name;
 ?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js" integrity="sha256-eetZG6Bzom5c8rWDuJiky3M1sJ3IGwNd/FIl/nmyMh0=" crossorigin="anonymous"></script>
@@ -38,19 +44,14 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
         <div class="row">
             <div class="col-md-12 col-md-offset-0">
 
-                <h1>Update Your Current Liabilities</h1>
+                <h1>Update Current Liabilities For <?php echo $company_name?></h1>
 
                 <div class="col-md-6 col-md-offset-3">    
-                    <form method="post" id="liability_update_form" onsubmit="return checkBusinessName(); return checkForm();"  name="liability_update_form" action="bpm_liability_insert_db.php">
+                    <form method="post" id="liability_update_form" onsubmit="return checkBusinessName(); return checkForm();"  name="liability_update_form" action="bpm_liability_insert_db.php<?php echo "?id=$id"?>">
                         <input type="hidden" name="country" value="">
                         <table class="table" >
                             <thead class="thead-inverse">
-                                <tr>
-                                    <th></th>    
-                                    <th>Company Name</th>
-                                    <th colspan="3"><input type="text" id="company_name" name="company_name" size="20" required> <strong style="color:red">&nbsp Required Entry</strong> </th>
-                                    <th colspan="3" id="company_name_required" ></th>
-                                </tr>
+                                
                                 <tr>
                                     <th></th>    
                                     <th>Date</th>

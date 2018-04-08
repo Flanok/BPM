@@ -22,6 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 require_once 'init.php';
 require_once $abs_us_root.$us_url_root.'users/includes/header.php';
 require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
+$id=$_GET['id'];
 ?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js" integrity="sha256-eetZG6Bzom5c8rWDuJiky3M1sJ3IGwNd/FIl/nmyMh0=" crossorigin="anonymous"></script>
@@ -40,13 +41,14 @@ date_default_timezone_set("America/Boise");
 $id=$_GET['id'];
 
 $userID = $user->data()->id;
-$users = $db->query("SELECT * FROM business_scorecard WHERE users_id = $userID AND id = $id");
+$users = $db->query("SELECT * FROM business_scorecard WHERE business_id = $id ORDER BY date_time DESC LIMIT 1");
 $results = $users->results();
 
+$stmt = $db->query("SELECT name FROM business WHERE id = $id");
+$result = $stmt->results();
+$company_name = $result[0]->name;
+
 foreach($results as $r) {
-    if ($r->users_id == $userID){
-        $userID = $user->data()->id;
-        $company_name = $r->company_name;
         $date_time = $r->date_time;
         $experience_weight = $r->experience_weight;
         $experience_grade = $r->experience_grade;
@@ -68,7 +70,6 @@ foreach($results as $r) {
         $rec_pay_grade = $r->managing_rec_pay_grade;
         $cash_weight = $r->cash_controls_weight;
         $cash_grade = $r->cash_controls_grade;
-    }
 }
 ?>
 
@@ -76,7 +77,7 @@ foreach($results as $r) {
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <h1>Update Company</h1>
+                <h1>Update  <?php echo $company_name?></h1>
 
                 <!-- Graph for the users input -->
                 <div class="col-md-5" style="border: 1px solid black; ">
@@ -92,12 +93,7 @@ foreach($results as $r) {
                         <input type="hidden" name="id" id="id" value="<?php echo $id ?>">
                         <table class="table table-striped">
                             <thead class="thead-inverse">
-                                <tr>
-                                    <th></th>    
-                                    <th>Company Name</th>
-                                    <th colspan="3"><input type="text" required id="company_name" name="company_name" size="40" value="<?php echo $company_name ?>" > </th>
-                                    <th colspan="2" id="company_name_required" style="color:red">Required Entry</th>
-                                </tr>
+                                
                                 <tr>
                                     <th></th>    
                                     <th>Date</th>

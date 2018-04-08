@@ -2,6 +2,8 @@
 require_once 'init.php';
 require_once $abs_us_root.$us_url_root.'users/includes/header.php';
 require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
+
+$id=$_GET['id'];
 ?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js" integrity="sha256-eetZG6Bzom5c8rWDuJiky3M1sJ3IGwNd/FIl/nmyMh0=" crossorigin="anonymous"></script>
@@ -16,7 +18,6 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
 
 date_default_timezone_set("America/Boise");  
 
-$company_name=$_GET['id'];
 $db = DB::getInstance();
 
 $userID = $user->data()->id;
@@ -81,9 +82,12 @@ $userID = $user->data()->id;
     **************/
 
 //Query the data for the list of the businesses
-$users = $db->query("SELECT * FROM business_scorecard WHERE users_id = $userID");
+$users = $db->query("SELECT * FROM business_scorecard WHERE business_id = $id");
 $results = $users->results();
-$company_name = $results[0]->company_name;
+
+$stmt = $db->query("SELECT name FROM business WHERE id = $id");
+$result = $stmt->results();
+$company_name = $result[0]->name;
 ?>
 <div id="page-wrapper">
     <div class="container-fluid">
@@ -104,11 +108,9 @@ $company_name = $results[0]->company_name;
                     <?php    
                     //Loop through the business name and the date it was inserted into the database
                     foreach($results as $r) {
-                        if ($r->company_name == $company_name){   
                             $date = new DateTime($r->date_time);
 
-                            echo "<tr><td style='margin:10px; padding:0 15px'><a href='business_scorecard_update.php?id=".$r->id."'>".$date->format('F d, Y')."</a>  at  ".$date->format('h:i a')."</td></tr>";
-                        }
+                            echo "<tr><td style='margin:10px; padding:0 15px'><a href='business_scorecard_update.php?id=".$id."'>".$date->format('F d, Y')."</a>  at  ".$date->format('h:i a')."</td></tr>";
                     }
                     ?>    
                     </table></div>
@@ -120,7 +122,6 @@ $company_name = $results[0]->company_name;
                 $dates_array = array();
                 $i = 0;
                 foreach ($results as $row) {
-                    if ($row->company_name == $company_name){
                         $total = ($row->experience_weight * $row->experience_grade);
                         $total = $total + ($row->economic_weight * $row->economic_grade);
                         $total = $total + ($row->working_capital_weight * $row->working_capital_grade);
@@ -139,7 +140,6 @@ $company_name = $results[0]->company_name;
                         $date = $row->date_time;
                         $dates_array[] = $date;
                         $i++; 
-                    }    
                 }    
                 $array_length = count($total_array);
                 //$date->format('m-d-Y')

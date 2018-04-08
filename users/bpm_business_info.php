@@ -15,9 +15,9 @@ $userID = $user->data()->id;
 
 
 // $users = $db->query("SELECT *, COUNT(company_name) AS 'total' FROM business_scorecard WHERE users_id = $userID GROUP BY company_name");
-$users = $db->query("SELECT * FROM business_scorecard WHERE users_id = $userID AND id = $id");
-$results = $users->results(); 
-$company_name = $results[0]->company_name;
+$stmt = $db->query("SELECT * FROM business WHERE id = $id");
+$results = $stmt->results(); 
+$company_name = $results[0]->name;
 
 //Loop through the business name and the date it was inserted into the database
 ?>   
@@ -29,12 +29,17 @@ $company_name = $results[0]->company_name;
         echo "<h1>Company: $company_name</h1>
         <div class='col-md-10 col-md-offset-1'> 
         <!--        Score Card-->
-        <a class='btn btn-primary ' href='business_scorecard_business_list_by_date.php?id=$id' role='button'>Score Card</a>
+        <a class='btn btn-primary ' href='business_scorecard_business_list_by_date.php?id=$id' role='button'>Score Card History</a>
+        <br/>
+
+		<!--        Score Card-->
+		<br/>
+        <a class='btn btn-primary ' href='business_scorecard_insert.php?id=$id' role='button'>Insert Score Card</a>
         <br/>
 
         <!--        Data Log-->
         <br/>
-        <a class='btn btn-primary ' href='bpm_data_log.php' role='button'>Data Log</a>
+        <a class='btn btn-primary ' href='bpm_data_log.php?id=$id' role='button'>Data Log</a>
         <br/>
 
         <!--        Assets Update-->
@@ -49,7 +54,7 @@ $company_name = $results[0]->company_name;
 
         <!--        Liabilities Update-->
         <br/>
-        <a class='btn btn-primary ' href='business_scorecard_current_liabilities.php' role='button'>Update Liabilities</a>
+        <a class='btn btn-primary ' href='business_scorecard_current_liabilities.php?id=$id' role='button'>Update Liabilities</a>
         <br/>
 
 		<!--        Liabilities History-->

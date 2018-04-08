@@ -23,6 +23,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 require_once 'init.php';
 require_once $abs_us_root.$us_url_root.'users/includes/header.php';
 require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
+
+$id=$_GET['id'];
+
+$stmt = $db->query("SELECT name FROM business WHERE id = $id");
+$result = $stmt->results();
+$company_name = $result[0]->name;
+
 ?>
 
 
@@ -40,7 +47,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <h1>Add Business:</h1>
+                <h1>Update Scorecard for <?php echo $company_name?>:</h1>
 
 
 
@@ -48,16 +55,12 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
 
 
                 <div class="col-md-5 col-md-offset-1">              
-                    <form method="post" id="business_scorecard_id" onsubmit="return checkForm()"  name="business_scorecard_id" action="business_scorecard_insert_preview.php">
+                    <form method="post" id="business_scorecard_id" onsubmit="return checkForm()"  name="business_scorecard_id" action="business_scorecard_insert_preview.php<?php echo "?id=".$id?>">
                         <input type="hidden" name="country" value="">
                         <table class="table table-striped">
                             <thead class="thead-inverse">
                                 <tr>
-                                    <th></th>    
-                                    <th>Company Name</th>
-                                    <th colspan="3"><input type="text" id="company_name" name="company_name" size="40" required> </th>
-                                    <th colspan="2" id="company_name_required" style="color:red">Required Entry</th>
-                                </tr>
+                               </tr>
                                 <tr>
                                     <th></th>    
                                     <th>Date</th>

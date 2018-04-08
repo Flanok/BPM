@@ -12,8 +12,9 @@ $db = DB::getInstance();
 
 $userID = $user->data()->id;
 
+$id=$_GET['id'];
 
-$users = $db->query("SELECT *, COUNT(company_name) AS 'total' FROM business_scorecard WHERE users_id = $userID GROUP BY company_name");
+$users = $db->query("SELECT * FROM business_scorecard WHERE business_id = $id GROUP BY business_id");
 $results = $users->results(); 
 ?>
 <div id="page-wrapper">
@@ -29,9 +30,9 @@ $results = $users->results();
                 foreach($results as $r) {
                     if ($r->users_id == $userID) 
                         //echo "<h3>$r->company_name</h3>";
-                        echo "<a class='btn btn-primary ' href='bpm_add_business.php?id=$r->company_name' role='button'>$r->company_name</a>";
+                        echo "<a class='btn btn-primary ' href='bpm_add_business.php?id=$id' role='button'>$r->company_name</a>";
                         
-                        echo "<tr><td style='margin:5px; padding:0 15px'><a href='business_scorecard_business_list_by_date.php?id=".$r->company_name."'>".$r->company_name."</a></td><td style='margin:5px; padding:0 15px;text-align: center'>".$r->total." </td></tr>";
+                        echo "<tr><td style='margin:5px; padding:0 15px'><a href='business_scorecard_business_list_by_date.php?id=".$id."'>".$r->company_name."</a></td><td style='margin:5px; padding:0 15px;text-align: center'>".$r->total." </td></tr>";
                     //                    echo "<tr><td><a href='business_scorecard_update.php?id=".$r->id."'>".$r->company_name."</a></td><td>".$r->date_time." </td></tr>";
                 }
                 echo "</table></div>";

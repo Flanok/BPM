@@ -12,8 +12,13 @@ $db = DB::getInstance();
 
 $userID = $user->data()->id;
 
-$users = $db->query("SELECT *, COUNT(company_name) AS 'total' FROM business_scorecard WHERE users_id = $userID GROUP BY company_name");
-$results = $users->results(); 
+
+//$users = $db->query("SELECT *, COUNT(company_name) AS 'total' FROM business_scorecard WHERE users_id = $userID GROUP BY company_name");
+
+//$stmt = $db->query("SELECT * FROM business WHERE user_id = $userID");
+$stmt = $db->query("SELECT * FROM business WHERE user_id = $userID");
+$biz = $stmt->results();
+//$results = $stt->results(); 
 ?>
 <div id="page-wrapper">
     <div class="container-fluid">
@@ -22,20 +27,20 @@ $results = $users->results();
         <!--Display Current Businesses-->
         <div class="col-sm-12">
             <?php
-            foreach($results as $r) {
-                if ($r->users_id == $userID) 
-                    $id = $r->id;
-                    //echo "<h3>$r->company_name</h3>";
-                    echo "<br/><a class='btn btn-primary ' href='bpm_business_info.php?id=$id' role='button'>$r->company_name</a><br/>";
+            foreach($biz as $biz) {
+                    $id = $biz->id;
+                    $name = $biz->name;
+
+                    echo "<br/><a class='btn btn-primary ' href='bpm_business_info.php?id=$id' role='button'>$name</a><br/>";
             }
             ?>
         <!--Insert New Business Option:-->
         <br/>
         <h4>Add New Business: </h4> 
-        <p>
-            <?php
-            echo "<a class='btn btn-primary ' href='business_scorecard_insert.php?id=$userID' role='button'>Add New Business</a>";
-            ?>
+            <form method="post" action="bpm_add_business.php">
+				Company Name:    <input id="company_name" style="margin:0 1em 0 1em; width: 50%;" type="text"/>
+				<button type="submit">Add business</button>
+            </form>
         </p>
         </div>
     </div>

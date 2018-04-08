@@ -24,6 +24,11 @@ require_once $abs_us_root.$us_url_root.'users/includes/header.php';
 require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
 
 $id=$_GET['id'];
+
+$stmt = $db->query("SELECT name FROM business WHERE id = $id");
+$results = $stmt->results(); 
+$company_name = $results[0]->name;
+
 ?>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js" integrity="sha256-eetZG6Bzom5c8rWDuJiky3M1sJ3IGwNd/FIl/nmyMh0=" crossorigin="anonymous"></script>
@@ -41,19 +46,14 @@ $id=$_GET['id'];
         <div class="row">
             <div class="col-md-12 col-md-offset-0">
 
-                <h1>Update Your Current Assets</h1>
+                <h1>Update Current Assets For <?php echo $company_name?></h1>
 
                 <div class="col-md-6 col-md-offset-3">              
                     <form method="post" id="asset_update_form" onsubmit="return checkBusinessName(); return checkForm();"  name="asset_update_form" action="bpm_asset_insert_db.php<?php echo "?id=$id"?>">
                         <input type="hidden" name="country" value="">
                         <table class="table" >
                             <thead class="thead-inverse">
-                                <tr>
-                                    <th></th>    
-                                    <th>Company Name</th>
-                                    <th colspan="3"><input type="text" id="company_name" name="company_name" size="20" required> <strong style="color:red">&nbsp Required Entry</strong> </th>
-                                    <th colspan="3" id="company_name_required" ></th>
-                                </tr>
+                               
                                 <tr>
                                     <th></th>    
                                     <th>Date</th>
@@ -315,8 +315,8 @@ $id=$_GET['id'];
                     </form>
 
                 <!-- footers -->
-                <?php require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>
+                <?php require_once $abs_us_root.$us_url_root."users/includes/page_footer.php"; // the final html footer copyright row + the external js calls ?>
 
                 <!-- Place any per-page javascript here -->
 
-                <?php require_once $abs_us_root.$us_url_root.'users/includes/html_footer.php'; // currently just the closing /body and /html ?>
+                <?php require_once $abs_us_root.$us_url_root."users/includes/html_footer.php"; // currently just the closing /body and /html ?>

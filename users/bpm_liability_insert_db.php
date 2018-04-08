@@ -10,6 +10,7 @@
 require_once 'init.php';
 require_once $abs_us_root.$us_url_root.'users/includes/header.php';
 require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
+$id=$_GET['id'];
 
 if($user->isLoggedIn()) { $thisUserID = $user->data()->id;} else { $thisUserID = 0; }
 
@@ -67,9 +68,9 @@ $fields=array(
 	'debt_itemization'=>$debt_itemization,
 	'long_term_obligations'=>$long_term_obligations,
 	'leases'=>$leases,
-	'total_liabilities'=>$liability_total
+	'total_liabilities'=>$liability_total,
 
-	//'business_id'=>$business_id
+	'business_id'=>$id
 
 );
 $db->insert('liabilities', $fields);
@@ -84,7 +85,6 @@ $db->insert('liabilities', $fields);
         <?php require_once $abs_us_root.$us_url_root.'users/includes/html_footer.php'; // currently just the closing /body and /html ?>
 
 <!--Redirect to Liability History display-->
-<!--$viewLiabilityHistory = "business.php?businessId=$biz_id";-->
 <?php 
-header("Location: bpm_view_liability_history.php");
+header("Location: bpm_view_liability_history.php?id=$id");
 die();?>

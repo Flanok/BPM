@@ -76,9 +76,9 @@ $fields=array(
 	'current_portion_notes_rec'=>$current_portion_notes_rec, 
 	'other_total'=>$other_total, 
 	
-	'asset_total'=>$asset_total
+	'asset_total'=>$asset_total,
 
-	//'business_id'=>$business_id
+	'business_id'=>$id
 
 );
 $db->insert('assets', $fields);
@@ -97,5 +97,5 @@ $db->insert('assets', $fields);
 
 <!--Redirect to Asset History display-->
 <?php 
-header("Location: business_scorecard_current_assets_view.php?id=$id");
+header("Location: bpm_view_asset_history.php?id=$id");
 die();?>
