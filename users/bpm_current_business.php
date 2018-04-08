@@ -41,6 +41,7 @@ $biz = $stmt->results();
 				Company Name:<input style="margin:0 1em 0 1em; width: 50%;" type="text" id="company_name" name="company_name" size="40" required>    
 				<button type="submit">Add Business</button>
             </form>
+			<br/><br/>
         </div>
     </div>
 </div>

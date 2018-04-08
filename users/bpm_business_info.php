@@ -62,10 +62,12 @@ $company_name = $results[0]->name;
         <a class='btn btn-primary ' href='bpm_view_liability_history.php?id=$id' role='button'>View Liability History</a>
         <br/>
 
-        <!--        Edit Info
-        <br/>
-        <a class='btn btn-primary ' href='business_scorecard_update.php?id=$id' role='button'>Edit Info</a><br/>
-		-->";
+        <!--       Delete Info-->
+        <br/><br/>
+		<form method='post' action='bpm_delete_business_db.php?id=$id'>
+		<button type='submit'> <strong>Delete:</strong> '".$company_name."' and It's Financial Records</button>
+		</form>
+		";
 
 ?>
 

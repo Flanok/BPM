@@ -7,7 +7,7 @@ require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
 <?php
 $id=$_GET['id'];
 $userID = $user->data()->id;
-$users = $db->query("SELECT a.asset_total, a.cash_and_equivalents_total, a.accounts_receivable_total, l.total_accounts_payable, l.total_liabilities, a.date_time FROM assets a JOIN liabilities l ON CAST(a.date_time AS DATE) = CAST(l.date_time  AS DATE) WHERE l.business_id = $id ORDER BY a.date_time DESC");
+$users = $db->query("SELECT a.asset_total, a.cash_and_equivalents_total, a.accounts_receivable_total, l.total_accounts_payable, l.total_liabilities, a.date_time FROM assets a INNER JOIN liabilities l ON CAST(a.date_time AS DATE) = CAST(l.date_time  AS DATE) WHERE l.business_id = $id AND a.business_id = $id GROUP BY a.date_time DESC");
 $results = $users->results();
 
 ?>
