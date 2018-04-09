@@ -40,11 +40,11 @@ $results = $users->results();
 		<th align='center'>Use of Credit %</th>
 		<th align='center'>Current Ratio</th>
         <th align='center'>Cash and Equivalents</th>
-		<th align='center'>Current Period Sales</th>
+		<!--<th align='center'>Current Period Sales</th>-->
 		<th align='center'>Accounts Receivable</th>
 		<th align='center'>Accounts Payable</th>
         
-		<th align='center'>Total</th>
+		<!--<th align='center'>Total</th>-->
     </tr>
     </thead>
     <tbody>
@@ -62,17 +62,18 @@ $results = $users->results();
 //			   if($working_cap <= 0){}
 			   echo "<tr>";
 			   echo "<th>".date_format($date, 'm/d/Y')."</th>";
-               echo "<td>$ ".number_format($r->asset_total,2)."</td>";
-		       echo "<td>$ ".number_format($r->total_liabilities,2)."</td>";
-			   echo "<td>$</td>";//Working Capital
-			   echo "<td>%</td>";//Workinc Capital % (owners contribution)
-			   echo "<td>%</td>";//Use of Credit % (credit contribution)
-			   echo "<td></td>";//Current Ratio
+               echo "<td>$".number_format($r->asset_total,2)."</td>";
+		       echo "<td>$".number_format($r->total_liabilities,2)."</td>";
+			   echo "<td>$".number_format(($r->asset_total)-($r->total_liabilities),2)."</td>";//Working Capital
+			   
+               echo "<td>".number_format((($r->asset_total)-($r->total_liabilities))/((($r->asset_total)-($r->total_liabilities))+($r->total_liabilities))*100,1)."%</td>";//Workinc Capital % (owners contribution)
+			   echo "<td>".number_format((($r->total_liabilities))/((($r->asset_total)-($r->total_liabilities))+($r->total_liabilities))*100,1)."%</td>";//Use of Credit % (credit contribution)
+			   echo "<td>".number_format(($r->asset_total)/($r->total_liabilities),2)." <strong>:</strong> 1</td>";//Current Ratio
                echo "<td>$ ".number_format($r->cash_and_equivalents_total,2)."</td>";
-			   echo "<td>$</td>";//Current Period Sales
+			   //echo "<td>$</td>";//Current Period Sales
 			   echo "<td>$".number_format($r->accounts_receivable_total,2)."</td>";
 			   echo "<td>$".number_format($r->total_accounts_payable,2)."</td>";
-			   echo "<td>$</td>";//Total
+			   //echo "<td>$</td>";//Total
                echo "</tr>";
             }?>
 		</tr>
