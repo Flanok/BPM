@@ -24,7 +24,49 @@ require_once $abs_us_root.$us_url_root.'users/includes/header.php';
 require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
 $id=$_GET['id'];
 ?>
+        <?php
+        
+        echo "
+        <div class='col-md-10 col-md-offset-1'> 
+        <br/>
+        <br/>
+        <div style='display:flex'>
+        <!--        Score Card-->
+        <a class='btn btn-primary ' href='business_scorecard_business_list_by_date.php?id=$id' role='button'>Score Card History</a>
+        <br/>
 
+		<!--        Score Card-->
+		<br/>
+        <a class='btn btn-primary ' href='business_scorecard_insert.php?id=$id' role='button'>Insert Score Card</a>
+        <br/>
+
+        <!--        Data Log-->
+        <br/>
+        <a class='btn btn-primary ' href='bpm_data_log.php?id=$id' role='button'>Data Log</a>
+        <br/>
+
+        <!--        Assets Update-->
+        <br/>
+        <a class='btn btn-primary ' href='business_scorecard_current_assets.php?id=$id' role='button'>Insert Assets</a>
+        <br/>
+
+		<!--        Asset History-->
+        <br/>
+        <a class='btn btn-primary ' href='bpm_view_asset_history.php?id=$id' role='button'>View Asset History</a>
+        <br/>
+
+        <!--        Liabilities Update-->
+        <br/>
+        <a class='btn btn-primary ' href='business_scorecard_current_liabilities.php?id=$id' role='button'>Insert Liabilities</a>
+        <br/>
+
+		<!--        Liabilities History-->
+        <br/>
+        <a class='btn btn-primary ' href='bpm_view_liability_history.php?id=$id' role='button'>View Liability History</a>
+</div>
+		";
+
+?>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js" integrity="sha256-eetZG6Bzom5c8rWDuJiky3M1sJ3IGwNd/FIl/nmyMh0=" crossorigin="anonymous"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js" integrity="sha256-VNbX9NjQNRW+Bk02G/RO6WiTKuhncWI4Ey7LkSbE+5s=" crossorigin="anonymous"></script>
