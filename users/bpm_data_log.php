@@ -2,9 +2,8 @@
 require_once 'init.php';
 require_once $abs_us_root.$us_url_root.'users/includes/header.php';
 require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
-?>
+require_once 'bpm_individual_biz_nav_tabs.php';
 
-<?php
 $id=$_GET['id'];
 $userID = $user->data()->id;
 $users = $db->query("SELECT a.asset_total, a.cash_and_equivalents_total, a.accounts_receivable_total, l.total_accounts_payable, l.total_liabilities, a.date_time, l.date_time FROM assets a INNER JOIN liabilities l ON CAST(a.date_time AS DATE) = CAST(l.date_time  AS DATE) WHERE l.business_id = $id AND a.business_id = $id GROUP BY a.date_time DESC");
@@ -13,52 +12,8 @@ $results = $users->results();
 $stmt = $db->query("SELECT name FROM business WHERE id = $id");
 $result = $stmt->results(); 
 $company_name = $result[0]->name;
-?>
-
-        <?php
-        
-        echo "
-        <div class='col-md-10 col-md-offset-1'> 
-        <br/>
-        <br/>
-        <div style='display:flex'>
-        <!--        Score Card-->
-        <a class='btn btn-primary ' href='business_scorecard_business_list_by_date.php?id=$id' role='button'>Score Card History</a>
-        <br/>
-
-		<!--        Score Card-->
-		<br/>
-        <a class='btn btn-primary ' href='business_scorecard_insert.php?id=$id' role='button'>Insert Score Card</a>
-        <br/>
-
-        <!--        Data Log-->
-        <br/>
-        <a class='btn btn-primary ' href='bpm_data_log.php?id=$id' role='button'>Data Log</a>
-        <br/>
-
-        <!--        Assets Update-->
-        <br/>
-        <a class='btn btn-primary ' href='business_scorecard_current_assets.php?id=$id' role='button'>Insert Assets</a>
-        <br/>
-
-		<!--        Asset History-->
-        <br/>
-        <a class='btn btn-primary ' href='bpm_view_asset_history.php?id=$id' role='button'>View Asset History</a>
-        <br/>
-
-        <!--        Liabilities Update-->
-        <br/>
-        <a class='btn btn-primary ' href='business_scorecard_current_liabilities.php?id=$id' role='button'>Insert Liabilities</a>
-        <br/>
-
-		<!--        Liabilities History-->
-        <br/>
-        <a class='btn btn-primary ' href='bpm_view_liability_history.php?id=$id' role='button'>View Liability History</a>
-</div>
-		";
 
 ?>
-
 
 
 <html>
@@ -67,7 +22,7 @@ $company_name = $result[0]->name;
         <div class="row">
             <div class="col-md-12 col-md-offset-0">
 
- <h1>Welcome to <?php echo $company_name?>'s Data Log</h1>
+ <h1>Data Log For <?php echo $company_name?> </h1>
 <!-- DATA LOG  -->                
                 
 <div class="col-md-12 col-md-offset-0"> 
@@ -129,3 +84,10 @@ $company_name = $result[0]->name;
     </div>
 </div>
 </html>
+
+                <!-- footers -->
+                <?php require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>
+
+                <!-- Place any per-page javascript here -->
+
+                <?php require_once $abs_us_root.$us_url_root.'users/includes/html_footer.php'; // currently just the closing /body and /html ?>

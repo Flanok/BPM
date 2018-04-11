@@ -1,28 +1,8 @@
 <?php
-/*
-UserSpice 4
-An Open Source PHP User Management System
-by the UserSpice Team at http://UserSpice.com
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-?>
-
-<?php
 require_once 'init.php';
 require_once $abs_us_root.$us_url_root.'users/includes/header.php';
 require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
+require_once 'bpm_individual_biz_nav_tabs.php';
 
 $id=$_GET['id'];
 
@@ -42,60 +22,12 @@ $company_name = $result[0]->name;
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js" integrity="sha256-N2Q5nbMunuogdOHfjiuzPsBMhoB80TFONAfO7MLhac0=" crossorigin="anonymous"></script>
 
 <?php if (!securePage($_SERVER['PHP_SELF'])){die();} ?>
-        <?php
         
-        echo "
-        <div class='col-md-10 col-md-offset-1'> 
-        <br/>
-        <br/>
-        <div style='display:flex'>
-        <!--        Score Card-->
-        <a class='btn btn-primary ' href='business_scorecard_business_list_by_date.php?id=$id' role='button'>Score Card History</a>
-        <br/>
-
-		<!--        Score Card-->
-		<br/>
-        <a class='btn btn-primary ' href='business_scorecard_insert.php?id=$id' role='button'>Insert Score Card</a>
-        <br/>
-
-        <!--        Data Log-->
-        <br/>
-        <a class='btn btn-primary ' href='bpm_data_log.php?id=$id' role='button'>Data Log</a>
-        <br/>
-
-        <!--        Assets Update-->
-        <br/>
-        <a class='btn btn-primary ' href='business_scorecard_current_assets.php?id=$id' role='button'>Insert Assets</a>
-        <br/>
-
-		<!--        Asset History-->
-        <br/>
-        <a class='btn btn-primary ' href='bpm_view_asset_history.php?id=$id' role='button'>View Asset History</a>
-        <br/>
-
-        <!--        Liabilities Update-->
-        <br/>
-        <a class='btn btn-primary ' href='business_scorecard_current_liabilities.php?id=$id' role='button'>Insert Liabilities</a>
-        <br/>
-
-		<!--        Liabilities History-->
-        <br/>
-        <a class='btn btn-primary ' href='bpm_view_liability_history.php?id=$id' role='button'>View Liability History</a>
-</div>
-		";
-
-?>
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
-                <h1>Update Scorecard for <?php echo $company_name?>:</h1>
-
-
-
-
-
-
+                <h1>Insert New Scorecard for <?php echo $company_name?>:</h1>
                 <div class="col-md-5 col-md-offset-1">              
                     <form method="post" id="business_scorecard_id" onsubmit="return checkForm()"  name="business_scorecard_id" action="business_scorecard_insert_preview.php<?php echo "?id=".$id?>">
                         <input type="hidden" name="country" value="">
@@ -575,7 +507,7 @@ $company_name = $result[0]->name;
 
                             </tbody>
                         </table>
-                        <input type="submit" value="Submit">
+                        <input class='btn btn-primary' type="submit" value="Submit">
                     </form>
                 </div> 
 

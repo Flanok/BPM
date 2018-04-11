@@ -2,6 +2,7 @@
 require_once 'init.php';
 require_once $abs_us_root.$us_url_root.'users/includes/header.php';
 require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
+require_once 'bpm_individual_biz_nav_tabs.php';
 
 date_default_timezone_set("America/Boise");  
 
@@ -22,50 +23,6 @@ $result = $stmt->results();
 $company_name = $result[0]->name;
 
 ?>   
-
-        <?php
-        
-        echo "
-        <div class='col-md-10 col-md-offset-1'> 
-        <br/>
-        <br/>
-        <div style='display:flex'>
-        <!--        Score Card-->
-        <a class='btn btn-primary ' href='business_scorecard_business_list_by_date.php?id=$id' role='button'>Score Card History</a>
-        <br/>
-
-		<!--        Score Card-->
-		<br/>
-        <a class='btn btn-primary ' href='business_scorecard_insert.php?id=$id' role='button'>Insert Score Card</a>
-        <br/>
-
-        <!--        Data Log-->
-        <br/>
-        <a class='btn btn-primary ' href='bpm_data_log.php?id=$id' role='button'>Data Log</a>
-        <br/>
-
-        <!--        Assets Update-->
-        <br/>
-        <a class='btn btn-primary ' href='business_scorecard_current_assets.php?id=$id' role='button'>Insert Assets</a>
-        <br/>
-
-		<!--        Asset History-->
-        <br/>
-        <a class='btn btn-primary ' href='bpm_view_asset_history.php?id=$id' role='button'>View Asset History</a>
-        <br/>
-
-        <!--        Liabilities Update-->
-        <br/>
-        <a class='btn btn-primary ' href='business_scorecard_current_liabilities.php?id=$id' role='button'>Insert Liabilities</a>
-        <br/>
-
-		<!--        Liabilities History-->
-        <br/>
-        <a class='btn btn-primary ' href='bpm_view_liability_history.php?id=$id' role='button'>View Liability History</a>
-</div>
-		";
-
-?>
             
 <!-- STYLING FOR THE TABLES ON THIS PAGE  -->
 <style>
@@ -269,12 +226,17 @@ $company_name = $result[0]->name;
         </div>
 	</tbody>
      </table>
-</div> 
-       
 <!--       Delete Info-->
 <?php 
 echo "<br/>
 <form method='post' action='bpm_delete_business_db.php?id=$id'>
-<button type='submit'> <strong>Delete:</strong> '".$company_name."' and It's Financial Records</button>
+<button class='btn btn-primary' type='submit'> <strong>Delete:</strong> '".$company_name."' and It's Financial Records</button>
 </form><br/><br/>"; ?>
-  
+</div> 
+       
+                  <!-- footers -->
+                <?php require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>
+
+                <!-- Place any per-page javascript here -->
+
+                <?php require_once $abs_us_root.$us_url_root.'users/includes/html_footer.php'; // currently just the closing /body and /html ?>

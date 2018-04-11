@@ -1,95 +1,26 @@
 <?php
-/*
-UserSpice 4
-An Open Source PHP User Management System
-by the UserSpice Team at http://UserSpice.com
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-?>
-
-<?php
 require_once 'init.php';
 require_once $abs_us_root.$us_url_root.'users/includes/header.php';
 require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
+date_default_timezone_set("America/Boise");  
+require_once 'bpm_individual_biz_nav_tabs.php';
 
 $id=$_GET['id'];
+$userID = $user->data()->id;
+$users = $db->query("SELECT * FROM assets WHERE business_id = $id ORDER BY date_time DESC");
+$results = $users->results();
 
 $stmt = $db->query("SELECT name FROM business WHERE id = $id");
-$results = $stmt->results(); 
-$company_name = $results[0]->name;
-
+$result = $stmt->results(); 
+$company_name = $result[0]->name;
 ?>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js" integrity="sha256-eetZG6Bzom5c8rWDuJiky3M1sJ3IGwNd/FIl/nmyMh0=" crossorigin="anonymous"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js" integrity="sha256-VNbX9NjQNRW+Bk02G/RO6WiTKuhncWI4Ey7LkSbE+5s=" crossorigin="anonymous"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js" integrity="sha256-N2Q5nbMunuogdOHfjiuzPsBMhoB80TFONAfO7MLhac0=" crossorigin="anonymous"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js" integrity="sha256-N2Q5nbMunuogdOHfjiuzPsBMhoB80TFONAfO7MLhac0=" crossorigin="anonymous"></script>
-
-<!-- <php if (!securePage($_SERVER['PHP_SELF'])){die();} ?>-->
-        <?php
-        
-        echo "
-        <div class='col-md-10 col-md-offset-1'> 
-        <br/>
-        <br/>
-        <div style='display:flex'>
-        <!--        Score Card-->
-        <a class='btn btn-primary ' href='business_scorecard_business_list_by_date.php?id=$id' role='button'>Score Card History</a>
-        <br/>
-
-		<!--        Score Card-->
-		<br/>
-        <a class='btn btn-primary ' href='business_scorecard_insert.php?id=$id' role='button'>Insert Score Card</a>
-        <br/>
-
-        <!--        Data Log-->
-        <br/>
-        <a class='btn btn-primary ' href='bpm_data_log.php?id=$id' role='button'>Data Log</a>
-        <br/>
-
-        <!--        Assets Update-->
-        <br/>
-        <a class='btn btn-primary ' href='business_scorecard_current_assets.php?id=$id' role='button'>Insert Assets</a>
-        <br/>
-
-		<!--        Asset History-->
-        <br/>
-        <a class='btn btn-primary ' href='bpm_view_asset_history.php?id=$id' role='button'>View Asset History</a>
-        <br/>
-
-        <!--        Liabilities Update-->
-        <br/>
-        <a class='btn btn-primary ' href='business_scorecard_current_liabilities.php?id=$id' role='button'>Insert Liabilities</a>
-        <br/>
-
-		<!--        Liabilities History-->
-        <br/>
-        <a class='btn btn-primary ' href='bpm_view_liability_history.php?id=$id' role='button'>View Liability History</a>
-</div>
-		";
-
-?>
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12 col-md-offset-0">
 
-                <h1>Update Current Assets For <?php echo $company_name?></h1>
+                <h1>Insert Current Asset Log For <?php echo $company_name?></h1>
 
                 <div class="col-md-6 col-md-offset-3">              
                     <form method="post" id="asset_update_form" onsubmit="return checkBusinessName(); return checkForm();"  name="asset_update_form" action="bpm_asset_insert_db.php<?php echo "?id=$id"?>">
@@ -178,7 +109,7 @@ $company_name = $results[0]->name;
                                     </td>
                                 </tr>
 
-                                <!--  Line 7  -->
+                                <!--  Line 7  
                                 <tr>
                                     <th scope="row"></th>
                                     <td align="right"><strong>Total:</strong></td>
@@ -186,7 +117,7 @@ $company_name = $results[0]->name;
                                         <div id="cash_and_equivalents_total"></div>
                                     </td>
                                     <td></td>
-                                </tr>
+                                </tr> -->
 
 
                             </tbody>
@@ -243,7 +174,7 @@ $company_name = $results[0]->name;
                                     </td>
                                 </tr>
 
-                                <!--  Line 5  -->
+                                <!--  Line 5  
                                 <tr>
                                     <th scope="row"></th>
                                     <td align="right"><strong>Total:</strong></td>
@@ -251,7 +182,7 @@ $company_name = $results[0]->name;
                                         <div id="accounts_receivable_total"></div>
                                     </td>
                                     <td></td>
-                                </tr>
+                                </tr> -->
 
                             </tbody>
                         </table>
@@ -297,12 +228,12 @@ $company_name = $results[0]->name;
                                         <input required type="text" id="miscellaneous_value" name="miscellaneous_value" size="15" >
                                     </td>
                                 </tr>
-                                <!--  Line 4  -->
+                                <!--  Line 4 
                                 <tr>
                                     <td></td>
                                     <td align="right"><strong>Total: </strong></td>
                                     <td><p id="inventory_total"></p></td>
-                                </tr>
+                                </tr>  -->
                             </tbody>
                         </table>
                         <br/> 
@@ -342,18 +273,18 @@ $company_name = $results[0]->name;
                                         <input required type="text" id="current_portion_notes_rec_amount" name="current_portion_notes_rec_amount" size="15" >
                                     </td>
                                 </tr>
-                                <!--  Line 4  -->
+                                <!--  Line 4  
                                 <tr>
                                     <td></td>
                                     <td align="right"><strong>Total: </strong></td>
                                     <td><p id="other_total"></p></td>
-                                </tr>
+                                </tr>  -->
                             </tbody>
                         </table>    
-                        <strong>Total Assets: <span id="asset_total"></span></strong>
+                        <!-- <strong>Total Assets: <span id="asset_total"></span></strong> -->
                         <br/>
                         <br/>
-                        <button type="submit" onclick="" id="asset_update_button">Update Asset Log</button>
+                        <button class='btn btn-primary' type="submit" onclick="" id="asset_update_button">Insert Asset Log</button>
                         </div> 
                     </form>
 

@@ -36,12 +36,18 @@ $biz = $stmt->results();
             ?>
         <!--Insert New Business Option:-->
         <br/>
-        <h4>Add New Business: </h4> 
+        <h3>Add New Business: </h3> 
             <form method="post" action="bpm_add_business.php">
-				Company Name:<input style="margin:0 1em 0 1em; width: 50%;" type="text" id="company_name" name="company_name" size="40" required>    
-				<button type="submit">Add Business</button>
+				<div> <h4>Company Name:<input style="margin:0 1em 0 1em; width: 40%;" type="text" id="company_name" name="company_name" size="40" required></h4></div>
+				<div> <button style="width: 52%" class='btn btn-primary' type="submit">Add Business</button> </div>
             </form>
 			<br/><br/>
         </div>
     </div>
 </div>
+                <!-- footers -->
+                <?php require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>
+
+                <!-- Place any per-page javascript here -->
+
+                <?php require_once $abs_us_root.$us_url_root.'users/includes/html_footer.php'; // currently just the closing /body and /html ?>

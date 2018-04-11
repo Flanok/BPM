@@ -2,17 +2,11 @@
 require_once 'init.php';
 require_once $abs_us_root.$us_url_root.'users/includes/header.php';
 require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
+require_once 'bpm_individual_biz_nav_tabs.php';
+
 
 $id=$_GET['id'];
 ?>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js" integrity="sha256-eetZG6Bzom5c8rWDuJiky3M1sJ3IGwNd/FIl/nmyMh0=" crossorigin="anonymous"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js" integrity="sha256-VNbX9NjQNRW+Bk02G/RO6WiTKuhncWI4Ey7LkSbE+5s=" crossorigin="anonymous"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js" integrity="sha256-N2Q5nbMunuogdOHfjiuzPsBMhoB80TFONAfO7MLhac0=" crossorigin="anonymous"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js" integrity="sha256-N2Q5nbMunuogdOHfjiuzPsBMhoB80TFONAfO7MLhac0=" crossorigin="anonymous"></script>
 
 <?php
 
@@ -21,65 +15,6 @@ date_default_timezone_set("America/Boise");
 $db = DB::getInstance();
 
 $userID = $user->data()->id;
-/*       $company_name= $_POST['company_name'];
-        $date_time= date('y/m/d h:i:sa');
-        $experience_weight= $_POST['experience_weight'];
-        $experience_grade= $_POST['experience_grade'];
-        $economic_weight= $_POST['economic_weight'];
-        $economic_grade= $_POST['economic_grade'];
-        $working_capital_weight= $_POST['capital_weight'];
-        $working_capital_grade= $_POST['capital_grade'];
-        $employees_weight= $_POST['employees_weight'];
-        $employees_grade= $_POST['employees_grade'];
-        $relations_weight= $_POST['relationships_weight'];
-        $relations_grade= $_POST['relationships_grade'];
-        $capital_assets_weight= $_POST['assets_weight'];
-        $capital_assets_grade= $_POST['assets_grade'];
-        $marketing_weight= $_POST['marketing_weight'];
-        $marketing_grade= $_POST['marketing_grade'];
-        $managing_debt_weight= $_POST['debt_weight'];
-        $managing_debt_grade= $_POST['debt_grade'];
-        $managing_rec_pay_weight= $_POST['rec_pay_weight'];
-        $managing_rec_pay_grade= $_POST['rec_pay_grade'];
-        $cash_controls_weight= $_POST['cash_weight'];
-        $cash_controls_grade= $_POST['cash_grade'];
-
-    $fields=array(
-        'company_name'=>$company_name,
-        'date_time'=>$date_time,
-        'experience_weight'=>$experience_weight,
-        'experience_grade'=>$experience_grade,
-        'economic_weight'=>$economic_weight,
-        'economic_grade'=>$economic_grade,
-        'working_capital_weight'=>$working_capital_weight,
-        'working_capital_grade'=>$working_capital_grade,
-        'employees_weight'=>$employees_weight,
-        'employees_grade'=>$employees_grade,
-        'relations_weight'=>$relations_weight,
-        'relations_grade'=>$relations_grade,
-        'capital_assets_weight'=>$capital_assets_weight,
-        'capital_assets_grade'=>$capital_assets_grade,
-        'marketing_weight'=>$marketing_weight,
-        'marketing_grade'=>$marketing_grade,
-        'managing_debt_weight'=>$managing_debt_weight,
-        'managing_debt_grade'=>$managing_debt_grade,
-        'managing_rec_pay_weight'=>$managing_rec_pay_weight,
-        'managing_rec_pay_grade'=>$managing_rec_pay_grade,
-        'cash_controls_weight'=>$cash_controls_weight,
-        'cash_controls_grade'=>$cash_controls_grade,
-        'users_id'=>$userID
-        );
-    $db->insert('business_scorecard',$fields);
- */
-
-
-/****************8              
-    if ($db->query($sql) === TRUE) {
-        echo "New record created successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . $db->error;
-    }  
-    **************/
 
 //Query the data for the list of the businesses
 $users = $db->query("SELECT * FROM business_scorecard WHERE business_id = $id");
@@ -89,62 +24,18 @@ $stmt = $db->query("SELECT name FROM business WHERE id = $id");
 $result = $stmt->results();
 $company_name = $result[0]->name;
 ?>
-        <?php
-        
-        echo "
-        <div class='col-md-10 col-md-offset-1'> 
-        <br/>
-        <br/>
-        <div style='display:flex'>
-        <!--        Score Card-->
-        <a class='btn btn-primary ' href='business_scorecard_business_list_by_date.php?id=$id' role='button'>Score Card History</a>
-        <br/>
-
-		<!--        Score Card-->
-		<br/>
-        <a class='btn btn-primary ' href='business_scorecard_insert.php?id=$id' role='button'>Insert Score Card</a>
-        <br/>
-
-        <!--        Data Log-->
-        <br/>
-        <a class='btn btn-primary ' href='bpm_data_log.php?id=$id' role='button'>Data Log</a>
-        <br/>
-
-        <!--        Assets Update-->
-        <br/>
-        <a class='btn btn-primary ' href='business_scorecard_current_assets.php?id=$id' role='button'>Insert Assets</a>
-        <br/>
-
-		<!--        Asset History-->
-        <br/>
-        <a class='btn btn-primary ' href='bpm_view_asset_history.php?id=$id' role='button'>View Asset History</a>
-        <br/>
-
-        <!--        Liabilities Update-->
-        <br/>
-        <a class='btn btn-primary ' href='business_scorecard_current_liabilities.php?id=$id' role='button'>Insert Liabilities</a>
-        <br/>
-
-		<!--        Liabilities History-->
-        <br/>
-        <a class='btn btn-primary ' href='bpm_view_liability_history.php?id=$id' role='button'>View Liability History</a>
-</div>
-		";
-
-?>
+  
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
+            <div class="col-sm-12">
+                <h1>Scorecard History for <?php echo $company_name?>:</h1>
             <div class="col-md-12 col-md-offset-1" style="display:flex">
 
 
                 <!--Print the table of the businesses and the dates -->
                 <div style='padding:30px 0 0 10px; margin: 5px;'><table border='1'>
-                    <h2>
-                        <?php
-                        echo $company_name;
-                        ?>
-                    </h2>
+                    <h4>Click to Overwrite:</h4>
                     <tr>
                         <td style='margin:5px; padding:0 15px'>Date Inserted</td></tr>
 
@@ -156,7 +47,9 @@ $company_name = $result[0]->name;
                             echo "<tr><td style='margin:10px; padding:0 15px'><a href='business_scorecard_update.php?id=".$id."'>".$date->format('F d, Y')."</a>  at  ".$date->format('h:i a')."</td></tr>";
                     }
                     ?>    
-                    </table></div>
+                    </table>
+					</br> </br>
+					</div>
 
 
                 <?php
@@ -231,13 +124,7 @@ for (var i=0; i<array_length; i++) {
                 <div class="col-md-5 col-md-offset-2" style="border: 1px solid black; ">
                     <canvas id="totalsChart"></canvas> 
                 </div>
-            </div>
-        </div>
-
-    </div>
-</div>            
-
-
+  
 <script>
     var ctx = document.getElementById("totalsChart").getContext('2d');
     var myChart = new Chart(ctx, {

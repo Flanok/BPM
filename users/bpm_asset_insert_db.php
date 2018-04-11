@@ -1,4 +1,3 @@
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js" integrity="sha256-eetZG6Bzom5c8rWDuJiky3M1sJ3IGwNd/FIl/nmyMh0=" crossorigin="anonymous"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js" integrity="sha256-VNbX9NjQNRW+Bk02G/RO6WiTKuhncWI4Ey7LkSbE+5s=" crossorigin="anonymous"></script>
@@ -7,9 +6,9 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js" integrity="sha256-N2Q5nbMunuogdOHfjiuzPsBMhoB80TFONAfO7MLhac0=" crossorigin="anonymous"></script>
 <?php
-require_once 'init.php';
-require_once $abs_us_root.$us_url_root.'users/includes/header.php';
-require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
+require_once 'bpm_individual_biz_nav_tabs.php';
+
+//$userID = $user->data()->id;
 $id=$_GET['id'];
 
 if($user->isLoggedIn()) { $thisUserID = $user->data()->id;} else { $thisUserID = 0; }
@@ -18,13 +17,8 @@ $userQ = $db->query("SELECT * FROM users LEFT JOIN profiles ON users.id = user_i
 // group active, inactive, on naughty step
 $users = $userQ->results();
 
-date_default_timezone_set("America/Boise");
-
-
 
 $db = DB::getInstance();
-//$company_id = $_POST['id'];
-//$userID = $user->data()->id;
 
 $cash = $_POST['cash_amount'];
 $checking = $_POST['checking_amount'];
@@ -50,7 +44,6 @@ $other_total = $earned_rents_receivable + $current_portion_notes_rec;
 
 $asset_total = $cash_and_equivalents_total + $accounts_receivable_total + $inventory_total + $other_total;
 $date_time= date('y/m/d h:i:sa');
-//$business_id = ?
 
 $fields=array(
     
@@ -82,10 +75,6 @@ $fields=array(
 
 );
 $db->insert('assets', $fields);
-
-//$query = $db->query("SELECT business_id FROM business_scorecard WHERE business_id = ? AND date = ?",[$userID,$date_time]);
-//$id_company = $query->first();
-//$company_id = $id_company->id;
 
 ?>
 

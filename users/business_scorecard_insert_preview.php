@@ -10,6 +10,7 @@
 require_once 'init.php';
 require_once $abs_us_root.$us_url_root.'users/includes/header.php';
 require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
+require_once 'bpm_individual_biz_nav_tabs.php';
 
 //if (!securePage($_SERVER['PHP_SELF'])){die();}
 
@@ -567,10 +568,3 @@ $db->insert('business_scorecard',$fields);
                     }    
 
                 </script>
-
-                <!-- footers -->
-                <?php require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>
-
-                <!-- Place any per-page javascript here -->
-
-                <?php require_once $abs_us_root.$us_url_root.'users/includes/html_footer.php'; // currently just the closing /body and /html ?>
