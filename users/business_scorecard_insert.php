@@ -22,7 +22,7 @@ $company_name = $result[0]->name;
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.js" integrity="sha256-N2Q5nbMunuogdOHfjiuzPsBMhoB80TFONAfO7MLhac0=" crossorigin="anonymous"></script>
 
 <?php if (!securePage($_SERVER['PHP_SELF'])){die();} ?>
-        
+
 <div id="page-wrapper">
     <div class="container-fluid">
         <div class="row">
@@ -34,14 +34,14 @@ $company_name = $result[0]->name;
                         <table class="table table-striped">
                             <thead class="thead-inverse">
                                 <tr>
-                               </tr>
+                                </tr>
                                 <tr>
                                     <th></th>    
                                     <th>Date</th>
                                     <th><p>
                                         <?php 
-                                        date_default_timezone_set("America/Boise");
-                                        echo date('Y/M/d') . " " . date('h:i:sa') . " MST"
+    date_default_timezone_set("America/Boise");
+                    echo date('Y/M/d') . " " . date('h:i:sa') . " MST"
                                         ?>
                                         </p></th>
                                 </tr> 

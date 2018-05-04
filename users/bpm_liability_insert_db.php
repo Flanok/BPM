@@ -52,26 +52,26 @@ $date_time= date('y/m/d h:i:sa');
 //$business_id = ?
 
 $fields=array(
-    
-	'current_to_30_days'=>$current_30_days, 
-	'days_31_60'=>$days_31_60, 
-	'days_61_90'=>$days_61_90, 
-	'over_90_days'=>$over_90_days, 
-	'total_accounts_payable'=>$accounts_payable_total, 
-	'liens_judgments'=>$liens_judgments_amount,
-	'customer_prepaid_accounts'=>$customer_prepaid_amount,
-	'deferred_salaries'=>$deferred_salaries_amount,
-	'accruals_taxes_payroll'=>$accruals_taxes_payroll_amount,
-	'balloon_payments'=>$balloon_payments_amount,
-	'accrued_interest'=>$accrued_interest_amount, 
-	'other_total'=>$other_total,
-	'debt_itemization'=>$debt_itemization,
-	'long_term_obligations'=>$long_term_obligations,
-	'leases'=>$leases,
-	'debt_continued_total'=>$debt_continued_total,
-	'total_liabilities'=>$liability_total,
 
-	'business_id'=>$id
+    'current_to_30_days'=>$current_30_days, 
+    'days_31_60'=>$days_31_60, 
+    'days_61_90'=>$days_61_90, 
+    'over_90_days'=>$over_90_days, 
+    'total_accounts_payable'=>$accounts_payable_total, 
+    'liens_judgments'=>$liens_judgments_amount,
+    'customer_prepaid_accounts'=>$customer_prepaid_amount,
+    'deferred_salaries'=>$deferred_salaries_amount,
+    'accruals_taxes_payroll'=>$accruals_taxes_payroll_amount,
+    'balloon_payments'=>$balloon_payments_amount,
+    'accrued_interest'=>$accrued_interest_amount, 
+    'other_total'=>$other_total,
+    'debt_itemization'=>$debt_itemization,
+    'long_term_obligations'=>$long_term_obligations,
+    'leases'=>$leases,
+    'debt_continued_total'=>$debt_continued_total,
+    'total_liabilities'=>$liability_total,
+
+    'business_id'=>$id
 
 );
 $db->insert('liabilities', $fields);
@@ -80,10 +80,10 @@ $db->insert('liabilities', $fields);
 //$id_company = $query->first();
 //$company_id = $id_company->id;
 ?>
-        <?php require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>
+<?php require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>
 
-        <!-- Place any per-page javascript here -->
-        <?php require_once $abs_us_root.$us_url_root.'users/includes/html_footer.php'; // currently just the closing /body and /html ?>
+<!-- Place any per-page javascript here -->
+<?php require_once $abs_us_root.$us_url_root.'users/includes/html_footer.php'; // currently just the closing /body and /html ?>
 
 <!--Redirect to Liability History display-->
 <?php 

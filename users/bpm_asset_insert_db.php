@@ -46,43 +46,43 @@ $asset_total = $cash_and_equivalents_total + $accounts_receivable_total + $inven
 $date_time= date('y/m/d h:i:sa');
 
 $fields=array(
-    
-	'cash'=>$cash,
-	'checking'=>$checking, 
-	'pay_pal_account'=>$pay_pal_account,
-	'payroll_account_balance'=>$payroll_account_balance,
-	'savings'=>$savings,
-	'pre_paid_accounts'=>$pre_paid_accounts, 
-	'cash_and_equivalents_total'=>$cash_and_equivalents_total,
-	
-	'current_30_days'=>$current_30_days, 
-	'days_31_60'=>$days_31_60, 
-	'days_61_90'=>$days_61_90, 
-	'over_90_days'=>$over_90_days, 
-	'accounts_receivable_total'=>$accounts_receivable_total, 
-	
-	'supplies'=>$supplies, 
-	'miscellaneous'=>$miscellaneous,
-	'inventory_total'=>$inventory_total, 
-	
-	'earned_rents_receivable'=>$earned_rents_receivable,
-	'current_portion_notes_rec'=>$current_portion_notes_rec, 
-	'other_total'=>$other_total, 
-	
-	'asset_total'=>$asset_total,
 
-	'business_id'=>$id
+    'cash'=>$cash,
+    'checking'=>$checking, 
+    'pay_pal_account'=>$pay_pal_account,
+    'payroll_account_balance'=>$payroll_account_balance,
+    'savings'=>$savings,
+    'pre_paid_accounts'=>$pre_paid_accounts, 
+    'cash_and_equivalents_total'=>$cash_and_equivalents_total,
+
+    'current_30_days'=>$current_30_days, 
+    'days_31_60'=>$days_31_60, 
+    'days_61_90'=>$days_61_90, 
+    'over_90_days'=>$over_90_days, 
+    'accounts_receivable_total'=>$accounts_receivable_total, 
+
+    'supplies'=>$supplies, 
+    'miscellaneous'=>$miscellaneous,
+    'inventory_total'=>$inventory_total, 
+
+    'earned_rents_receivable'=>$earned_rents_receivable,
+    'current_portion_notes_rec'=>$current_portion_notes_rec, 
+    'other_total'=>$other_total, 
+
+    'asset_total'=>$asset_total,
+
+    'business_id'=>$id
 
 );
 $db->insert('assets', $fields);
 
 ?>
 
-        <!-- footers -->
-        <?php require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>
+<!-- footers -->
+<?php require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>
 
-        <!-- Place any per-page javascript here -->
-        <?php require_once $abs_us_root.$us_url_root.'users/includes/html_footer.php'; // currently just the closing /body and /html ?>
+<!-- Place any per-page javascript here -->
+<?php require_once $abs_us_root.$us_url_root.'users/includes/html_footer.php'; // currently just the closing /body and /html ?>
 
 <!--Redirect to Asset History display-->
 <?php 

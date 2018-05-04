@@ -27,14 +27,14 @@ $company_name = $result[0]->name;
                         <input type="hidden" name="country" value="">
                         <table class="table" >
                             <thead class="thead-inverse">
-                               
+
                                 <tr>
                                     <th></th>    
                                     <th>Date</th>
                                     <th colspan="2">
                                         <?php 
-                                        date_default_timezone_set("America/Boise");
-                                        echo date('Y/M/d') . " at " . date('h:i:sa') . " MST"
+    date_default_timezone_set("America/Boise");
+                    echo date('Y/M/d') . " at " . date('h:i:sa') . " MST"
                                         ?>
                                     </th>
                                 </tr> 
@@ -110,14 +110,14 @@ $company_name = $result[0]->name;
                                 </tr>
 
                                 <!--  Line 7  
-                                <tr>
-                                    <th scope="row"></th>
-                                    <td align="right"><strong>Total:</strong></td>
-                                    <td>
-                                        <div id="cash_and_equivalents_total"></div>
-                                    </td>
-                                    <td></td>
-                                </tr> -->
+<tr>
+<th scope="row"></th>
+<td align="right"><strong>Total:</strong></td>
+<td>
+<div id="cash_and_equivalents_total"></div>
+</td>
+<td></td>
+</tr> -->
 
 
                             </tbody>
@@ -175,14 +175,14 @@ $company_name = $result[0]->name;
                                 </tr>
 
                                 <!--  Line 5  
-                                <tr>
-                                    <th scope="row"></th>
-                                    <td align="right"><strong>Total:</strong></td>
-                                    <td>
-                                        <div id="accounts_receivable_total"></div>
-                                    </td>
-                                    <td></td>
-                                </tr> -->
+<tr>
+<th scope="row"></th>
+<td align="right"><strong>Total:</strong></td>
+<td>
+<div id="accounts_receivable_total"></div>
+</td>
+<td></td>
+</tr> -->
 
                             </tbody>
                         </table>
@@ -229,11 +229,11 @@ $company_name = $result[0]->name;
                                     </td>
                                 </tr>
                                 <!--  Line 4 
-                                <tr>
-                                    <td></td>
-                                    <td align="right"><strong>Total: </strong></td>
-                                    <td><p id="inventory_total"></p></td>
-                                </tr>  -->
+<tr>
+<td></td>
+<td align="right"><strong>Total: </strong></td>
+<td><p id="inventory_total"></p></td>
+</tr>  -->
                             </tbody>
                         </table>
                         <br/> 
@@ -274,11 +274,11 @@ $company_name = $result[0]->name;
                                     </td>
                                 </tr>
                                 <!--  Line 4  
-                                <tr>
-                                    <td></td>
-                                    <td align="right"><strong>Total: </strong></td>
-                                    <td><p id="other_total"></p></td>
-                                </tr>  -->
+<tr>
+<td></td>
+<td align="right"><strong>Total: </strong></td>
+<td><p id="other_total"></p></td>
+</tr>  -->
                             </tbody>
                         </table>    
                         <!-- <strong>Total Assets: <span id="asset_total"></span></strong> -->

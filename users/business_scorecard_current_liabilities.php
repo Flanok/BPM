@@ -11,7 +11,7 @@ $stmt = $db->query("SELECT name FROM business WHERE id = $id");
 $results = $stmt->results(); 
 $company_name = $results[0]->name;
 ?>
-    
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js" integrity="sha256-eetZG6Bzom5c8rWDuJiky3M1sJ3IGwNd/FIl/nmyMh0=" crossorigin="anonymous"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js" integrity="sha256-VNbX9NjQNRW+Bk02G/RO6WiTKuhncWI4Ey7LkSbE+5s=" crossorigin="anonymous"></script>
@@ -33,14 +33,14 @@ $company_name = $results[0]->name;
                         <input type="hidden" name="country" value="">
                         <table class="table" >
                             <thead class="thead-inverse">
-                                
+
                                 <tr>
                                     <th></th>    
                                     <th>Date</th>
                                     <th colspan="2">
                                         <?php 
-                                        date_default_timezone_set("America/Boise");
-                                        echo date('Y/M/d') . " at " . date('h:i:sa') . " MST"
+    date_default_timezone_set("America/Boise");
+                    echo date('Y/M/d') . " at " . date('h:i:sa') . " MST"
                                         ?>
                                     </th>
                                 </tr> 
@@ -97,14 +97,14 @@ $company_name = $results[0]->name;
                                 </tr>
                                 <!--if two different php documents have the same ID but call javascript can it determine the difference between documents that call it-->
                                 <!--  Line 5  
-                                <tr>
-                                    <th scope="row"></th>
-                                    <td align="right"><strong>Total:</strong></td>
-                                    <td>
-                                        <div id="accounts_payable_total"></div>
-                                    </td>
-                                    <td></td>
-                                </tr>  -->
+<tr>
+<th scope="row"></th>
+<td align="right"><strong>Total:</strong></td>
+<td>
+<div id="accounts_payable_total"></div>
+</td>
+<td></td>
+</tr>  -->
 
                             </tbody>
                         </table>
@@ -176,11 +176,11 @@ $company_name = $results[0]->name;
                                     </td>
                                 </tr>
                                 <!--  Line 7 TOTAL
-                                <tr>
-                                    <td></td>
-                                    <td align="right"><strong>Total: </strong></td>
-                                    <td><p id="other_total"></p></td>
-                                </tr> -->
+<tr>
+<td></td>
+<td align="right"><strong>Total: </strong></td>
+<td><p id="other_total"></p></td>
+</tr> -->
                             </tbody>
                         </table>    
 
@@ -220,11 +220,11 @@ $company_name = $results[0]->name;
                                     </td>
                                 </tr>
                                 <!--  Line 4
-                                <tr>
-                                    <td></td>
-                                    <td align="right"><strong>Total: </strong></td>
-                                    <td><p id="debt_continued_total"></p></td>
-                                </tr>  -->
+<tr>
+<td></td>
+<td align="right"><strong>Total: </strong></td>
+<td><p id="debt_continued_total"></p></td>
+</tr>  -->
                             </tbody>
                         </table>
                         <br/> 

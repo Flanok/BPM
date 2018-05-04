@@ -24,9 +24,9 @@ require_once $abs_us_root.$us_url_root.'users/includes/header.php';
 require_once $abs_us_root.$us_url_root.'users/includes/navigation.php';
 $id=$_GET['id'];
 ?>
-        <?php
-        
-        echo "
+<?php
+
+echo "
         <div class='col-md-10 col-md-offset-1'> 
         <br/>
         <br/>
@@ -78,275 +78,275 @@ $id=$_GET['id'];
 <!-- <php if (!securePage($_SERVER['PHP_SELF'])){die();} ?>-->
 
 <div id="page-wrapper">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12 col-md-offset-0">
-        <h1>Your Current Assets</h1>
-          <div class="col-md-6 col-md-offset-3">              
-            <form method="post" action="bpm_business_info.php<?php echo"?id=$id"?>">
-              <input type="hidden" name="country" value="">
-                <table class="table" >
-                  <thead class="thead-inverse">
-                    <tr>
-                      <th></th>    
-                      <th>Company Name</th>
-                      <th colspan="3">Company Name.... pull from db </th>
-                    </tr>
-                    <tr>
-                      <th></th>    
-                      <th>Date</th>
-                      <th colspan="2">
-                          <?php 
-                          date_default_timezone_set("America/Boise");
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 col-md-offset-0">
+                <h1>Your Current Assets</h1>
+                <div class="col-md-6 col-md-offset-3">              
+                    <form method="post" action="bpm_business_info.php<?php echo"?id=$id"?>">
+                        <input type="hidden" name="country" value="">
+                        <table class="table" >
+                            <thead class="thead-inverse">
+                                <tr>
+                                    <th></th>    
+                                    <th>Company Name</th>
+                                    <th colspan="3">Company Name.... pull from db </th>
+                                </tr>
+                                <tr>
+                                    <th></th>    
+                                    <th>Date</th>
+                                    <th colspan="2">
+                                        <?php 
+    date_default_timezone_set("America/Boise");
                           echo date('Y/M/d') . " at " . date('h:i:sa') . " MST"
-                          ?>
-                      </th>
-                    </tr> 
-                    <tr><td></td></tr>
-                  </thead>
-                </table>
+                                        ?>
+                                    </th>
+                                </tr> 
+                                <tr><td></td></tr>
+                            </thead>
+                        </table>
 
-                <!-- Cash and Equivalents - Schedule #1 -->    
-                <table class="table" >
-                  <thead class="thead-inverse">
-                    <tr><td colspan="3" align="center" bgcolor="#ccffcc"><strong>Cash and Equivalents</strong></td></tr>
-                    <tr>
-                      <th></th>    
-                      <th align="center">Description</th>
-                      <th align="center">Amount</th>
-                    </tr>
-                  </thead>
-                  <tbody>
+                        <!-- Cash and Equivalents - Schedule #1 -->    
+                        <table class="table" >
+                            <thead class="thead-inverse">
+                                <tr><td colspan="3" align="center" bgcolor="#ccffcc"><strong>Cash and Equivalents</strong></td></tr>
+                                <tr>
+                                    <th></th>    
+                                    <th align="center">Description</th>
+                                    <th align="center">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-                <!--  Line 1  -->
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Cash</td>
-                      <td>
-                        cash from db
-                      </td>
-                    </tr>
+                                <!--  Line 1  -->
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Cash</td>
+                                    <td>
+                                        cash from db
+                                    </td>
+                                </tr>
 
-                    <!--  Line 2  -->
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Checking</td>
-                      <td>
-                        checking
-                      </td>
-                    </tr>
+                                <!--  Line 2  -->
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Checking</td>
+                                    <td>
+                                        checking
+                                    </td>
+                                </tr>
 
-                    <!--  Line 3  -->
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>PayPal Account</td>
-                      <td>
-                        PayPal
-                      </td>
-                    </tr>
+                                <!--  Line 3  -->
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>PayPal Account</td>
+                                    <td>
+                                        PayPal
+                                    </td>
+                                </tr>
 
-                    <!--  Line 4  -->
-                    <tr>
-                      <th scope="row">4</th>
-                      <td>Payroll Account Balance</td>
-                      <td>
-                        Payroll
-                      </td>
-                    </tr>
+                                <!--  Line 4  -->
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>Payroll Account Balance</td>
+                                    <td>
+                                        Payroll
+                                    </td>
+                                </tr>
 
-                    <!--  Line 5  -->
-                    <tr>
-                      <th scope="row">5</th>
-                      <td>Savings</td>
-                      <td>
-                        Savings
-                      </td>
-                    </tr>
+                                <!--  Line 5  -->
+                                <tr>
+                                    <th scope="row">5</th>
+                                    <td>Savings</td>
+                                    <td>
+                                        Savings
+                                    </td>
+                                </tr>
 
-                    <!--  Line 6  -->
-                    <tr>
-                      <th scope="row">6</th>
-                      <td>Pre-paid accounts</td>
-                      <td>
-                        Pre
-                      </td>
-                    </tr>
+                                <!--  Line 6  -->
+                                <tr>
+                                    <th scope="row">6</th>
+                                    <td>Pre-paid accounts</td>
+                                    <td>
+                                        Pre
+                                    </td>
+                                </tr>
 
-                    <!--  Line 7  -->
-                    <tr>
-                      <th scope="row"></th>
-                      <td align="right"><strong>Total:</strong></td>
-                      <td>
-                        Cash n equiv
-                      </td>
-                      <td></td>
-                    </tr>
+                                <!--  Line 7  -->
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td align="right"><strong>Total:</strong></td>
+                                    <td>
+                                        Cash n equiv
+                                    </td>
+                                    <td></td>
+                                </tr>
 
 
-                  </tbody>
-                </table>
+                            </tbody>
+                        </table>
 
-                <br/> 
-                <br/>
+                        <br/> 
+                        <br/>
 
-                <!-- Accounts Receivable - Schedule #2 -->      
-                <table class="table" >
-                  <thead class="thead-inverse">
-                    <tr><td colspan="3" align="center" bgcolor="#ccffcc"><strong>Accounts Receivable</strong></td></tr>
-                    <tr>
-                      <th></th>    
-                      <th align="center">Accounts Receivable</th>
-                      <th align="center">Amount</th>
-                    </tr>
-                  </thead>     
-                  <tbody>  
-                    <!--  Line 1  -->
-                    <tr>
-                      <th scope="row">1</th>
-                      <td nowrap>Current 30 days</td>
-                      <td>
-                        30 days ar
-                      </td>
-                    </tr>
-    
-                    <!--  Line 2  -->
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>31-60 days</td>
-                      <td>
-                        3160
-                      </td>
-                    </tr>
+                        <!-- Accounts Receivable - Schedule #2 -->      
+                        <table class="table" >
+                            <thead class="thead-inverse">
+                                <tr><td colspan="3" align="center" bgcolor="#ccffcc"><strong>Accounts Receivable</strong></td></tr>
+                                <tr>
+                                    <th></th>    
+                                    <th align="center">Accounts Receivable</th>
+                                    <th align="center">Amount</th>
+                                </tr>
+                            </thead>     
+                            <tbody>  
+                                <!--  Line 1  -->
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td nowrap>Current 30 days</td>
+                                    <td>
+                                        30 days ar
+                                    </td>
+                                </tr>
 
-                    <!--  Line 3  -->
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>61-90 days</td>
-                      <td>
-                        6190
-                      </td>
-                    </tr>
+                                <!--  Line 2  -->
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>31-60 days</td>
+                                    <td>
+                                        3160
+                                    </td>
+                                </tr>
 
-                    <!--  Line 4  -->
-                    <tr>
-                      <th scope="row">4</th>
-                      <td>Over 90 days</td>
-                      <td>
-                        90
-                      </td>
-                    </tr>
+                                <!--  Line 3  -->
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>61-90 days</td>
+                                    <td>
+                                        6190
+                                    </td>
+                                </tr>
 
-                    <!--  Line 5  -->
-                    <tr>
-                      <th scope="row"></th>
-                      <td align="right"><strong>Total:</strong></td>
-                      <td>
-                        Total
-                      </td>
-                      <td></td>
-                    </tr>
+                                <!--  Line 4  -->
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>Over 90 days</td>
+                                    <td>
+                                        90
+                                    </td>
+                                </tr>
 
-                  </tbody>
-                </table>
-                <br/> 
-                <br/>
+                                <!--  Line 5  -->
+                                <tr>
+                                    <th scope="row"></th>
+                                    <td align="right"><strong>Total:</strong></td>
+                                    <td>
+                                        Total
+                                    </td>
+                                    <td></td>
+                                </tr>
 
-                <!-- Inventory - Schedule #3 -->      
-                <table class="table" >
-                  <thead class="thead-inverse">
-                    <tr>
-                      <td colspan="3" align="center" bgcolor="#ccffcc">
-                        <strong>Inventory</strong>
-                      </td>
-                    </tr>
+                            </tbody>
+                        </table>
+                        <br/> 
+                        <br/>
+
+                        <!-- Inventory - Schedule #3 -->      
+                        <table class="table" >
+                            <thead class="thead-inverse">
+                                <tr>
+                                    <td colspan="3" align="center" bgcolor="#ccffcc">
+                                        <strong>Inventory</strong>
+                                    </td>
+                                </tr>
                                 <!--<tr>
 <td colspan="5" align="center"><strong>How is Inventory Valued? &nbsp</strong>   
 <input required type="radio" name="gender" value="cost"> Cost &nbsp
 <input required type="radio" name="gender" value="fair_market"> Fair Market
 </td>
 </tr> -->
-                  </thead>     
+                            </thead>     
 
-                  <tbody>  
-                    <!--  Line 1  -->
-                    <tr>
-                      <th></th>    
-                      <th align="center" nowrap>Standard Categories</th>
-                      <th align="center">Value</th>
-                    </tr>
-                    <!--  Line 2  -->  
-                    <tr>
-                      <th scope="row">1</th>
-                      <td nowrap>Supplies</td>
-                      <td>
-                        Supplies
-                      </td>
-                    </tr>
-                    <!--  Line 3  -->   
-                    <tr>
-                      <th scope="row">2</th>
-                      <td nowrap>Miscellaneous</td>
-                      <td>
-                        Misc
-                      </td>
-                    </tr>
-                    <!--  Line 4  -->
-                    <tr>
-                      <td></td>
-                      <td align="right"><strong>Total: </strong></td>
-                      <td>Tots</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <br/> 
-                <br/> 
+                            <tbody>  
+                                <!--  Line 1  -->
+                                <tr>
+                                    <th></th>    
+                                    <th align="center" nowrap>Standard Categories</th>
+                                    <th align="center">Value</th>
+                                </tr>
+                                <!--  Line 2  -->  
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td nowrap>Supplies</td>
+                                    <td>
+                                        Supplies
+                                    </td>
+                                </tr>
+                                <!--  Line 3  -->   
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td nowrap>Miscellaneous</td>
+                                    <td>
+                                        Misc
+                                    </td>
+                                </tr>
+                                <!--  Line 4  -->
+                                <tr>
+                                    <td></td>
+                                    <td align="right"><strong>Total: </strong></td>
+                                    <td>Tots</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br/> 
+                        <br/> 
 
-                <!-- Other Current Assets - Schedule #4 -->      
-                <table class="table" >
-                  <thead class="thead-inverse">
-                    <tr>
-                      <td colspan="3" align="center" bgcolor="#ccffcc">
-                        <strong>Other Current Assets</strong>
-                      </td>
-                    </tr>
-                  </thead>     
-                  <tbody>
-                    <!--  Line 1  -->
-                    <tr>
-                      <th></th>    
-                      <th align="center" nowrap>Description</th>
-                      <th align="center">Amount</th>
-                    </tr>
-                    <!--  Line 2  -->  
-                    <tr>
-                      <th scope="row">1</th>
-                      <td nowrap>Earned Rents Receivable</td>
-                      <td>
-                        Earned rr
-                      </td>
-                    </tr>
-                    <!--  Line 3  -->   
-                    <tr>
-                      <th scope="row">2</th>
-                      <td nowrap>Current Portion Notes Rec.</td>
-                      <td>
-                        Curr port
-                      </td>
-                    </tr>
-                    <!--  Line 4  -->
-                    <tr>
-                      <td></td>
-                      <td align="right"><strong>Total: </strong></td>
-                      <td>Tots</td>
-                    </tr>
-                  </tbody>
-                </table>    
-                <strong>Total Assets: Money</strong>
-                    <br/>
-                    <br/>
-                  </div> 
-                  <button type="submit">Back</button>                  
-                </form>
+                        <!-- Other Current Assets - Schedule #4 -->      
+                        <table class="table" >
+                            <thead class="thead-inverse">
+                                <tr>
+                                    <td colspan="3" align="center" bgcolor="#ccffcc">
+                                        <strong>Other Current Assets</strong>
+                                    </td>
+                                </tr>
+                            </thead>     
+                            <tbody>
+                                <!--  Line 1  -->
+                                <tr>
+                                    <th></th>    
+                                    <th align="center" nowrap>Description</th>
+                                    <th align="center">Amount</th>
+                                </tr>
+                                <!--  Line 2  -->  
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td nowrap>Earned Rents Receivable</td>
+                                    <td>
+                                        Earned rr
+                                    </td>
+                                </tr>
+                                <!--  Line 3  -->   
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td nowrap>Current Portion Notes Rec.</td>
+                                    <td>
+                                        Curr port
+                                    </td>
+                                </tr>
+                                <!--  Line 4  -->
+                                <tr>
+                                    <td></td>
+                                    <td align="right"><strong>Total: </strong></td>
+                                    <td>Tots</td>
+                                </tr>
+                            </tbody>
+                        </table>    
+                        <strong>Total Assets: Money</strong>
+                        <br/>
+                        <br/>
+                        </div> 
+                    <button type="submit">Back</button>                  
+                    </form>
 
                 <!-- footers -->
                 <?php require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>

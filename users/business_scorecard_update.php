@@ -31,27 +31,27 @@ $result = $stmt->results();
 $company_name = $result[0]->name;
 
 foreach($results as $r) {
-        $date_time = $r->date_time;
-        $experience_weight = $r->experience_weight;
-        $experience_grade = $r->experience_grade;
-        $economic_weight = $r->economic_weight;
-        $economic_grade = $r->economic_grade;
-        $capital_weight = $r->working_capital_weight;
-        $capital_grade = $r->working_capital_grade;
-        $employees_weight = $r->employees_weight;
-        $employees_grade = $r->employees_grade;
-        $relations_weight = $r->relations_weight;
-        $relations_grade = $r->relations_grade;
-        $assets_weight= $r->capital_assets_weight;
-        $assets_grade = $r->capital_assets_grade;
-        $marketing_weight = $r->marketing_weight;
-        $marketing_grade = $r->marketing_grade;
-        $debt_weight = $r->managing_debt_weight;
-        $debt_grade = $r->managing_debt_grade;
-        $rec_pay_weight = $r->managing_rec_pay_weight;
-        $rec_pay_grade = $r->managing_rec_pay_grade;
-        $cash_weight = $r->cash_controls_weight;
-        $cash_grade = $r->cash_controls_grade;
+    $date_time = $r->date_time;
+    $experience_weight = $r->experience_weight;
+    $experience_grade = $r->experience_grade;
+    $economic_weight = $r->economic_weight;
+    $economic_grade = $r->economic_grade;
+    $capital_weight = $r->working_capital_weight;
+    $capital_grade = $r->working_capital_grade;
+    $employees_weight = $r->employees_weight;
+    $employees_grade = $r->employees_grade;
+    $relations_weight = $r->relations_weight;
+    $relations_grade = $r->relations_grade;
+    $assets_weight= $r->capital_assets_weight;
+    $assets_grade = $r->capital_assets_grade;
+    $marketing_weight = $r->marketing_weight;
+    $marketing_grade = $r->marketing_grade;
+    $debt_weight = $r->managing_debt_weight;
+    $debt_grade = $r->managing_debt_grade;
+    $rec_pay_weight = $r->managing_rec_pay_weight;
+    $rec_pay_grade = $r->managing_rec_pay_grade;
+    $cash_weight = $r->cash_controls_weight;
+    $cash_grade = $r->cash_controls_grade;
 }
 ?>
 
@@ -75,7 +75,7 @@ foreach($results as $r) {
                         <input type="hidden" name="id" id="id" value="<?php echo $id ?>">
                         <table class="table table-striped">
                             <thead class="thead-inverse">
-                                
+
                                 <tr>
                                     <th></th>    
                                     <th>Date</th>
@@ -84,10 +84,10 @@ foreach($results as $r) {
     //echo $date_time;
     //date_default_timezone_set("America/Boise");
     $date = new DateTime($date_time);
-                               //echo $date->format('m-d-Y');
-                               //echo $date->format('h:i:sa');
-                               echo $date->format('m-d-Y'). " at " . $date->format('h:i:sa') . " MST";
-                               //echo date('Y/M/d') . " at " . date('h:i:sa') . " MST";
+                    //echo $date->format('m-d-Y');
+                    //echo $date->format('h:i:sa');
+                    echo $date->format('m-d-Y'). " at " . $date->format('h:i:sa') . " MST";
+                    //echo date('Y/M/d') . " at " . date('h:i:sa') . " MST";
                                         ?>
                                         </p></th>
                                 </tr>      
@@ -562,9 +562,9 @@ foreach($results as $r) {
                     </form>
                     <br/>
                     <!--<form  method="post"  onsubmit="return confirm('Are you sure you want to delete this entry? This can not be undone');"  action="business_scorecard_delete.php?id=<?php echo$id;?>" >
-                        <input type="hidden"  name="id" id="id" value="<?php echo $id ?>">
-                        <button type="submit" name="delete_course" class="btn btn-danger">Delete Business Entry</button>
-                    </form>-->
+<input type="hidden"  name="id" id="id" value="<?php echo $id ?>">
+<button type="submit" name="delete_course" class="btn btn-danger">Delete Business Entry</button>
+</form>-->
                 </div> 
 
                 <script src="business_scorecard_functions/check_form.js"></script>

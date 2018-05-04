@@ -25,9 +25,9 @@ $results = $users->results();
 $stmt = $db->query("SELECT name FROM business WHERE id = $id");
 $result = $stmt->results(); 
 $company_name = $result[0]->name;
-       
 
-    echo "
+
+echo "
     <div class='col-md-10 col-md-offset-1'> 
     <br/>
     <br/>

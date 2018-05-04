@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\users",
-    "\\users\\includes"
+    "\\users"
   ],
-  "SelectedNode": "\\users\\bpm_delete_business_db.php",
+  "SelectedNode": "\\users\\bpm_view_asset_history.php",
   "PreviewInSolutionExplorer": false
 }

@@ -28,26 +28,26 @@ $biz = $stmt->results();
         <div class="col-sm-12">
             <?php
             foreach($biz as $biz) {
-                    $id = $biz->id;
-                    $name = $biz->name;
+                $id = $biz->id;
+                $name = $biz->name;
 
-                    echo "<br/><a class='btn btn-primary ' href='bpm_business_info.php?id=$id' role='button'>$name</a><br/>";
+                echo "<br/><a class='btn btn-primary ' href='bpm_business_info.php?id=$id' role='button'>$name</a><br/>";
             }
             ?>
-        <!--Insert New Business Option:-->
-        <br/>
-        <h3>Add New Business: </h3> 
+            <!--Insert New Business Option:-->
+            <br/>
+            <h3>Add New Business: </h3> 
             <form method="post" action="bpm_add_business.php">
-				<div> <h4>Company Name:<input style="margin:0 1em 0 1em; width: 40%;" type="text" id="company_name" name="company_name" size="40" required></h4></div>
-				<div> <button style="width: 52%" class='btn btn-primary' type="submit">Add Business</button> </div>
+                <div> <h4>Company Name:<input style="margin:0 1em 0 1em; width: 40%;" type="text" id="company_name" name="company_name" size="40" required></h4></div>
+                <div> <button style="width: 52%" class='btn btn-primary' type="submit">Add Business</button> </div>
             </form>
-			<br/><br/>
+            <br/><br/>
         </div>
     </div>
 </div>
-                <!-- footers -->
-                <?php require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>
+<!-- footers -->
+<?php require_once $abs_us_root.$us_url_root.'users/includes/page_footer.php'; // the final html footer copyright row + the external js calls ?>
 
-                <!-- Place any per-page javascript here -->
+<!-- Place any per-page javascript here -->
 
-                <?php require_once $abs_us_root.$us_url_root.'users/includes/html_footer.php'; // currently just the closing /body and /html ?>
+<?php require_once $abs_us_root.$us_url_root.'users/includes/html_footer.php'; // currently just the closing /body and /html ?>
